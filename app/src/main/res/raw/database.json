@@ -1,0 +1,413 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "firstName": "Emil",
+      "lastName" : "Stepanian",
+      "username" : "q",
+      "password" : "q",
+      "professionId" : "0"
+    },
+    {
+      "id": "2",
+      "firstName": "Kasper",
+      "lastName" : "Friis",
+      "username" : "w",
+      "password" : "w",
+      "professionId" : "2"
+    },
+    {
+      "id": "3",
+      "firstName": "Anders",
+      "lastName" : "Andersen",
+      "username" : "e",
+      "password" : "e",
+      "professionId" : "3"
+    },
+    {
+      "id": "4",
+      "firstName": "Bo",
+      "lastName" : "Derek",
+      "username" : "r",
+      "password" : "r",
+      "professionId" : "2"
+    },
+    {
+      "id": "5",
+      "firstName": "Geoff",
+      "lastName" : "Gilbert",
+      "username" : "a",
+      "password" : "a",
+      "professionId" : "4"
+    },
+    {
+      "id": "6",
+      "firstName": "Jens",
+      "lastName" : "Jensen",
+      "username" : "s",
+      "password" : "s",
+      "professionId" : "1"
+    },
+    {
+      "id": "7",
+      "firstName": "Susan",
+      "lastName" : "Simons",
+      "username" : "d",
+      "password" : "d",
+      "professionId" : "1"
+    },
+    {
+      "id": "0",
+      "firstName": "Søren",
+      "lastName" : "Hansen",
+      "username" : "f",
+      "password" : "f",
+      "professionId" : "1"
+    }
+  ],
+  "profession": [
+    {
+      "id": "0",
+      "title": "Klient"
+    },
+    {
+      "id": "1",
+      "title": "Tømrer"
+    },
+    {
+      "id": "2",
+      "title": "VVS"
+    },
+    {
+      "id": "3",
+      "title": "Murer"
+    },
+    {
+      "id": "4",
+      "title": "Maler"
+    },
+
+    {
+      "id": "5",
+      "title": "Elektriker"
+    }
+  ],
+  "job" : [
+    {
+      "id": "1",
+      "title" : "Fiks min Balkon",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Frederiksberg",
+      "date" : "05/05/2017",
+      "userId" : "1",
+      "categoryId" : "1"
+    },
+    {
+      "id": "2",
+      "title" : "Toilet virker ikke",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Amager",
+      "date" : "28/04/2017",
+      "userId" : "2",
+      "categoryId" : "2"
+    },
+    {
+      "id": "3",
+      "title" : "Ingen vand",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Østerbro",
+      "date" : "29/04/2017",
+      "userId" : "3",
+      "categoryId" : "2"
+    },
+    {
+      "id": "4",
+      "title" : "Smadret vask",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Amager",
+      "date" : "02/03/2017",
+      "userId" : "4",
+      "categoryId" : "2"
+    },
+    {
+      "id": "5",
+      "title" : "Hul i tag skal lappes",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Sydhavnen",
+      "date" : "16/04/2017",
+      "userId" : "1",
+      "categoryId" : "1"
+    },
+    {
+      "id": "6",
+      "title" : "Dør hænger i beslagene",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Nørrebro",
+      "date" : "18/04/2017",
+      "userId" : "2",
+      "categoryId" : "1"
+    },
+    {
+      "id": "7",
+      "title" : "Opsætning af TV samt højtalere",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Nordvest",
+      "date" : "18/04/2017",
+      "userId" : "3",
+      "categoryId" : "1"
+    },
+    {
+      "id": "8",
+      "title" : "Installation af 'Spotlys' i køkkenet",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Sydhavnen",
+      "date" : "22/01/2017",
+      "userId" : "4",
+      "categoryId" : "5"
+    },
+    {
+      "id": "9",
+      "title" : "Nedrivning af skur i haven",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Greve",
+      "date" : "29/01/2016",
+      "userId" : "1",
+      "categoryId" : "1"
+    },
+    {
+      "id": "10",
+      "title" : "Maling af børneværelse",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "location" : "Holbæk",
+      "date" : "25/02/2017",
+      "userId" : "2",
+      "categoryId" : "4"
+    }
+
+  ],
+  "image" : [
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 1"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 2"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 3"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 4"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 5"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 6"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 7"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 8"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 9"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 10"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 11"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 12"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 13"
+    },
+    {
+      "id": "1",
+      "jobId" : "1",
+      "ressourcePath" : "Sti til billede 14"
+    }
+  ],
+  "category" : [
+    {
+      "id": "0",
+      "title" : "Balkon",
+      "professionId" : "1"
+    },
+    {
+      "id": "1",
+      "title" : "Badeværelse",
+      "professionId" : "2"
+    },
+    {
+      "id": "2",
+      "title" : "Have",
+      "professionId" : "5"
+    },
+    {
+      "id": "3",
+      "title" : "Køkken",
+      "professionId" : "1"
+    }
+  ],
+  "requiredInfo" : [
+    {
+      "id": "0",
+      "categoryId" : "2",
+      "title" : "Titel på requiredInfo 1"
+    },
+    {
+      "id": "1",
+      "categoryId" : "3",
+      "title" : "Titel på requiredInfo 2"
+    },
+    {
+      "id": "2",
+      "categoryId" : "1",
+      "title" : "Titel på requiredInfo 3"
+    },
+    {
+      "id": "3",
+      "categoryId" : "4",
+      "title" : "Titel på requiredInfo 4"
+    },
+    {
+      "id": "4",
+      "categoryId" : "3",
+      "title" : "Titel på requiredInfo 5"
+    },
+    {
+      "id": "5",
+      "categoryId" : "3",
+      "title" : "Titel på requiredInfo 6"
+    }
+  ],
+  "message" : [
+    {
+      "id": "0",
+      "userIdSender" : "1",
+      "userIdReceiver" : "3",
+      "text" : "Hej ",
+      "date" : "05/05/2017"
+    },
+    {
+      "id": "1",
+      "userIdSender" : "1",
+      "userIdReceiver" : "3",
+      "text" : "Jeg hedder Emil",
+      "date" : "05/05/2017"
+    },
+    {
+      "id": "2",
+      "userIdSender" : "3",
+      "userIdReceiver" : "5",
+      "text" : "Besked id 2",
+      "date" : "07/05/2017"
+    },
+    {
+      "id": "3",
+      "userIdSender" : "4",
+      "userIdReceiver" : "6",
+      "text" : "oskfsfsdf sdf ",
+      "date" : "08/05/2017"
+    }
+  ],
+  "review" : [
+    {
+      "id": "1",
+      "userIdSender" : "1",
+      "userIdReceiver" : "2",
+      "jobId" : "1",
+      "rating" : "3",
+      "comment" : "Kommentar til anmeldelse",
+      "date" : "21/03/2017"
+    },
+    {
+      "id": "2",
+      "userIdSender" : "3",
+      "userIdReceiver" : "4",
+      "jobId" : "2",
+      "rating" : "4",
+      "comment" : "Kommentar til anmeldelse",
+      "date" : "22/03/2017"
+    },
+    {
+      "id": "3",
+      "userIdSender" : "4",
+      "userIdReceiver" : "5",
+      "jobId" : "4",
+      "rating" : "4",
+      "comment" : "Kommentar til anmeldelse",
+      "date" : "23/03/2017"
+    },
+    {
+      "id": "4",
+      "userIdSender" : "2",
+      "userIdReceiver" : "4",
+      "jobId" : "5",
+      "rating" : "2",
+      "comment" : "Kommentar til anmeldelse",
+      "date" : "24/03/2017"
+    }
+
+  ],
+  "offer" : [
+    {
+      "id" : "0",
+      "jobId" : "1",
+      "price" : "250",
+      "comment" : "Jeg er interesseret",
+      "userId" : "3",
+      "isAccepted" : "0",
+      "date" : "08/05/2017"
+    },
+    {
+      "id" : "1",
+      "jobId" : "1",
+      "price" : "300",
+      "comment" : "Vælg mig",
+      "userId" : "4",
+      "isAccepted" : "0",
+      "date" : "08/05/2017"
+    },
+    {
+      "id" : "2",
+      "jobId" : "1",
+      "price" : "500",
+      "comment" : "Lidt dyrt men jeg kan garantere god kvalitet ",
+      "userId" : "5",
+      "isAccepted" : "0",
+      "date" : "08/05/2017"
+    }
+
+  ]
+}
