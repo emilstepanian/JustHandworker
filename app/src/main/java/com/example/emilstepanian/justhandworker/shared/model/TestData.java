@@ -2,9 +2,6 @@ package com.example.emilstepanian.justhandworker.shared.model;
 
 import com.example.emilstepanian.justhandworker.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by emilstepanian on 04/05/2017.
  */

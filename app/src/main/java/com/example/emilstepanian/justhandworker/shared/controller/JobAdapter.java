@@ -45,7 +45,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
         holder.description.setText(jobItem.getDescription());
         holder.location.setText(jobItem.getLocation());
         holder.date.setText(jobItem.getDate());
-       // holder.image.setImageResource(jobItem.getMainImageResourceId());
+       holder.image.setImageResource(jobItem.getMainImageResourceId());
     }
 
     @Override
