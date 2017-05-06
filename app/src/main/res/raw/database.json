@@ -96,7 +96,7 @@
     {
       "id": "1",
       "title" : "Fiks min Balkon",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : " scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
       "location" : "Frederiksberg",
       "date" : "05/05/2017",
       "userId" : "1",
@@ -106,7 +106,7 @@
     {
       "id": "2",
       "title" : "Toilet virker ikke",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "location" : "Amager",
       "date" : "28/04/2017",
       "userId" : "2",
@@ -116,7 +116,7 @@
     {
       "id": "3",
       "title" : "Ingen vand",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem ipsum dolor sit  dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
       "location" : "Østerbro",
       "date" : "29/04/2017",
       "userId" : "3",
@@ -137,7 +137,7 @@
     {
       "id": "5",
       "title" : "Hul i tag skal lappes",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem",
       "location" : "Sydhavnen",
       "date" : "16/04/2017",
       "userId" : "1",
@@ -158,7 +158,7 @@
     {
       "id": "7",
       "title" : "Opsætning af TV samt højtalere",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem ipsum dolor sit amet,  dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed ferme",
       "location" : "Nordvest",
       "date" : "18/04/2017",
       "userId" : "3",
@@ -168,7 +168,7 @@
     {
       "id": "8",
       "title" : "Installation af 'Spotlys' i køkkenet",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac blandit lacinia ante a lacinia.",
       "location" : "Sydhavnen",
       "date" : "22/01/2017",
       "userId" : "4",
@@ -179,7 +179,7 @@
     {
       "id": "9",
       "title" : "Nedrivning af skur i haven",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea . Cras blandit lacinia ante a lacinia.",
       "location" : "Greve",
       "date" : "29/01/2016",
       "userId" : "1",
@@ -190,7 +190,7 @@
     {
       "id": "10",
       "title" : "Maling af børneværelse",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
       "location" : "Holbæk",
       "date" : "25/02/2017",
       "userId" : "2",
@@ -202,74 +202,74 @@
   ],
   "image" : [
     {
-      "id": "1",
+      "id": "0",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 1"
+      "imageTitle" : "wc"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 2"
+      "imageTitle" : "sink"
+    },
+    {
+      "id": "2",
+      "jobId" : "1",
+      "imageTitle" : "balcony"
+    },
+    {
+      "id": "3",
+      "jobId" : "1",
+      "imageTitle" : "wc"
+    },
+    {
+      "id": "4",
+      "jobId" : "1",
+      "imageTitle" : "balcony"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 3"
+      "imageTitle" : "sink"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 4"
+      "imageTitle" : "balcony"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 5"
+      "imageTitle" : "sink"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 6"
+      "imageTitle" : "wc"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 7"
+      "imageTitle" : "balcony"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 8"
+      "imageTitle" : "wc"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 9"
+      "imageTitle" : "wc"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 10"
+      "imageTitle" : "wc"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "imageTitle" : "Sti til billede 11"
-    },
-    {
-      "id": "1",
-      "jobId" : "1",
-      "imageTitle" : "Sti til billede 12"
-    },
-    {
-      "id": "1",
-      "jobId" : "1",
-      "imageTitle" : "Sti til billede 13"
-    },
-    {
-      "id": "1",
-      "jobId" : "1",
-      "imageTitle" : "Sti til billede 14"
+      "imageTitle" : "wc"
     }
   ],
   "category" : [

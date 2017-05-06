@@ -45,7 +45,14 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
         holder.description.setText(jobItem.getDescription());
         holder.location.setText(jobItem.getLocation());
         holder.date.setText(jobItem.getDate());
-       holder.image.setImageResource(jobItem.getMainImageResourceId());
+
+
+        try {
+            holder.image.setImageResource(holder.container.getResources().getIdentifier(JSONParser.getJSONObjectById(holder.container.getContext(), "image", jobItem.getMainImageResourceId()).getString("imageTitle"),"drawable", holder.container.getContext().getPackageName()));
+
+        } catch (Exception e){
+
+        }
     }
 
     @Override
@@ -70,7 +77,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
             description = (TextView) itemView.findViewById(R.id.comment_text);
             date = (TextView) itemView.findViewById(R.id.date_text);
             location = (TextView) itemView.findViewById(R.id.location_text);
-         //   image = (ImageView) itemView.findViewById(R.id.im_item_icon);
+           image = (ImageView) itemView.findViewById(R.id.im_item_icon);
             container = itemView.findViewById(R.id.card_view);
         }
     }

@@ -119,13 +119,24 @@ public class JSONParser {
         return data;
     }
 
-    public static JSONObject getJSONObject(JSONArray table, HashMap<String, String> whereParams) {
+    public static JSONObject getJSONObjectById(Context context, String table, int id) {
         JSONObject object = null;
 
-        for (int i = 0; i < table.length(); i++) {
+        try {
 
+            JSONArray jsonArray = getJSONArray(context.getResources().openRawResource(R.raw.database), table);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                if (jsonArray.getJSONObject(i).getInt("id") == id) {
+
+                    object = jsonArray.getJSONObject(i);
+                    return object;
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
 
         return object;
     }
