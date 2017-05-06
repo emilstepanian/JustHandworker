@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.emilstepanian.justhandworker.workman.ui.MessagesTabFragment">
-
-
+    tools:context="shared.ui.MessagesTabFragment">
+    
     <TextView
-        android:id="@+id/tabBarTitle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/messagesTabTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Tab" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        />
+
 
 </RelativeLayout>
