@@ -1,7 +1,6 @@
 package com.example.emilstepanian.justhandworker.shared.ui;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,9 +14,7 @@ import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerMainActivity;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.model.User;
-import com.example.emilstepanian.justhandworker.workman.ui.WorkmanMainActivity;
-
-import org.w3c.dom.Text;
+import com.example.emilstepanian.justhandworker.jobtaker.ui.JobTakerMainActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -96,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     public void onLoginSucess(User user) {
 
         if (user.getProfessionId() != 0) {
-            Intent i = new Intent(this, WorkmanMainActivity.class);
+            Intent i = new Intent(this, JobTakerMainActivity.class);
             startActivity(i);
         } else {
             Intent i = new Intent(this, JobOwnerMainActivity.class);

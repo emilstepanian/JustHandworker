@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".workman.ui.WorkmanMainActivity"
+            android:name=".jobtaker.ui.JobTakerMainActivity"
             android:label="@string/title_activity_workman_main" />
         <activity android:name=".shared.ui.SignupActivity" />
         <activity

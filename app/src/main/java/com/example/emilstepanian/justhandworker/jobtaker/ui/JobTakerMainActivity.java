@@ -1,4 +1,4 @@
-package com.example.emilstepanian.justhandworker.workman.ui;
+package com.example.emilstepanian.justhandworker.jobtaker.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,11 +8,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
 
-public class WorkmanMainActivity extends AppCompatActivity {
+public class JobTakerMainActivity extends AppCompatActivity {
 
     private Fragment fragment, homeFragment, messagesFragment, profileFragment;
     private FragmentManager fragmentManager;
@@ -51,11 +50,11 @@ public class WorkmanMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workman_main);
+        setContentView(R.layout.activity_jobtaker_main);
 
-        homeFragment = new HomeFragment();
-        messagesFragment = new MessagesFragment();
-        profileFragment = new ProfileFragment();
+        homeFragment = new HomeContainerFragment();
+        messagesFragment = new MessagesContainerFragment();
+        profileFragment = new ProfileContainerFragment();
 
         //Message that shows which menuitem we have selected
 
@@ -64,7 +63,7 @@ public class WorkmanMainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        fragment = new HomeFragment();
+        fragment = new HomeContainerFragment();
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_container, fragment).commit();
 

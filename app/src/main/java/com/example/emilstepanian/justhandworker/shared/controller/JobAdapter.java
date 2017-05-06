@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
 import com.example.emilstepanian.justhandworker.shared.ui.JobPageActivity;
-import com.example.emilstepanian.justhandworker.workman.ui.WorkmanMainActivity;
 
 import java.util.List;
 
