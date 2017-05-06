@@ -1,6 +1,7 @@
 package com.example.emilstepanian.justhandworker.shared.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
+import com.example.emilstepanian.justhandworker.shared.ui.JobPageActivity;
+import com.example.emilstepanian.justhandworker.workman.ui.WorkmanMainActivity;
 
 import java.util.List;
 
@@ -42,13 +45,23 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
 
     @Override
     public void onBindViewHolder(JobHolder holder, int position) {
+        final JobHolder finalHolder = holder;
             Job jobItem = listData.get(position);
-        holder.title.setText(jobItem.getTitle());
-        holder.description.setText(jobItem.getDescription());
-        holder.location.setText(jobItem.getLocation());
-        holder.date.setText(jobItem.getDate());
-        holder.image.setImageResource(holder.container.getResources().getIdentifier(jobItem.getMainImageTitle(),"drawable",holder.container.getContext().getPackageName()));
+        finalHolder.title.setText(jobItem.getTitle());
+        finalHolder.description.setText(jobItem.getDescription());
+        finalHolder.location.setText(jobItem.getLocation());
+        finalHolder.date.setText(jobItem.getDate());
+        finalHolder.image.setImageResource(holder.container.getResources().getIdentifier(jobItem.getMainImageTitle(),"drawable",holder.container.getContext().getPackageName()));
 
+        finalHolder.container.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(finalHolder.container.getContext(), JobPageActivity.class);
+                finalHolder.container.getContext().startActivity(i);
+            }
+
+        });
 
     }
 
