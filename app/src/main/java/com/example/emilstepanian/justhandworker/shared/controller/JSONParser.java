@@ -3,6 +3,7 @@ package com.example.emilstepanian.justhandworker.shared.controller;
 import android.content.Context;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.shared.model.Job;
 import com.example.emilstepanian.justhandworker.shared.model.User;
 
 import org.json.JSONArray;
@@ -11,7 +12,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,11 +23,10 @@ import java.util.Map;
  */
 
 public class JSONParser {
-
+    static InputStream inputStream = null;
 
 
     public static User authorizeUser(Context context, String username, String password) {
-        InputStream inputStream = null;
 
         User authorizedUser = null;
         try {
@@ -51,17 +54,71 @@ public class JSONParser {
 
 
         } catch (Exception e) {
-
-        } finally {
+            e.printStackTrace();
+        } /*finally {
             try {
                 if (inputStream != null) inputStream.close();
             } catch (Exception squish) {
             }
-        }
+        }*/
 
         return authorizedUser;
 
     }
+
+    public static <T> List<T> getListData(Context context, String table) {
+        inputStream = context.getResources().openRawResource(R.raw.database);
+        List data = null;
+        try {
+
+            JSONArray jsonArray = getJSONArray(inputStream, table);
+
+            if (table.equals("job")) {
+               data  = new ArrayList<>();
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject JSONJob = jsonArray.getJSONObject(i);
+
+
+                    Job job = new Job();
+
+                    job.setId(JSONJob.getInt("id"));
+                    job.setLocation(JSONJob.getString("location"));
+                    job.setCategoryId(JSONJob.getInt("categoryId"));
+                    job.setDate(JSONJob.getString("date"));
+                    job.setDescription(JSONJob.getString("description"));
+                    job.setTitle(JSONJob.getString("title"));
+                    job.setUserId(JSONJob.getInt("userId"));
+                    job.setMainImageResourceId(JSONJob.getInt("mainImageResourceId"));
+                    data.add(job);
+                }
+
+                return data;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+   /* public static List<Job> getListData() {
+        List<Job> data = new ArrayList<>();
+
+
+        for (int x = 0; x < 4; x++) {
+            for (int i = 0; i < titles.length && i < icons.length; i++) {
+                Job item = new Job();
+                item.setImageResId(icons[i]);
+                item.setTitle(titles[i]);
+                item.setComment(comments[i]);
+                item.setDate(dates[i]);
+                item.setLocation(locations[i]);
+                data.add(item);
+            }
+        }
+        return data;
+    }*/
 
     public static JSONObject getJSONObject(JSONArray table, HashMap<String, String> whereParams) {
         JSONObject object = null;

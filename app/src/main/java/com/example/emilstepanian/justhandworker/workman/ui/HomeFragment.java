@@ -9,8 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.controller.JobAdapter;
+import com.example.emilstepanian.justhandworker.shared.model.Job;
 import com.example.emilstepanian.justhandworker.shared.model.TestData;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -27,9 +31,10 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        List<Job> jobList = JSONParser.getListData(getContext(), "job");
 
 
-        jobAdapter = new JobAdapter(TestData.getListData(), getActivity()); //
+        jobAdapter = new JobAdapter(jobList, getActivity());
 
         recyclerView.setAdapter(jobAdapter);
 

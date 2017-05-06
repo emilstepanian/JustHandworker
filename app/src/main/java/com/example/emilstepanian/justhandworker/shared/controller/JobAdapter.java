@@ -42,10 +42,10 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
     public void onBindViewHolder(JobHolder holder, int position) {
             Job jobItem = listData.get(position);
         holder.title.setText(jobItem.getTitle());
-        holder.comment.setText(jobItem.getComment());
+        holder.description.setText(jobItem.getDescription());
         holder.location.setText(jobItem.getLocation());
         holder.date.setText(jobItem.getDate());
-        holder.icon.setImageResource(jobItem.getImageResId());
+       // holder.image.setImageResource(jobItem.getMainImageResourceId());
     }
 
     @Override
@@ -56,9 +56,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
     class JobHolder extends RecyclerView.ViewHolder {
 
 
-        private TextView title, location, date, comment;
+        private TextView title, location, date, description;
 
-        private ImageView icon;
+        private ImageView image;
         private View container;
 
         public JobHolder(View itemView) {
@@ -67,10 +67,10 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
 
 
             title = (TextView) itemView.findViewById(R.id.lbl_item_text);
-            comment = (TextView) itemView.findViewById(R.id.comment_text);
+            description = (TextView) itemView.findViewById(R.id.comment_text);
             date = (TextView) itemView.findViewById(R.id.date_text);
             location = (TextView) itemView.findViewById(R.id.location_text);
-            icon = (ImageView) itemView.findViewById(R.id.im_item_icon);
+         //   image = (ImageView) itemView.findViewById(R.id.im_item_icon);
             container = itemView.findViewById(R.id.card_view);
         }
     }

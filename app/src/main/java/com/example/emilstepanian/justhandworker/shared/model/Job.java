@@ -4,13 +4,13 @@ package com.example.emilstepanian.justhandworker.shared.model;
  * Created by emilstepanian on 04/05/2017.
  */
 
+import java.util.Date;
+
 public class Job {
 
-    private String title;
-    private int imageResId;
-    private String location;
-    private String date;
-    private String comment;
+    private String title, description, location, date;
+    private int id, userId, categoryId, mainImageResourceId;
+
 
     public String getTitle() {
         return title;
@@ -20,12 +20,12 @@ public class Job {
         this.title = title;
     }
 
-    public int getImageResId() {
-        return imageResId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setImageResId(int imageResId) {
-        this.imageResId = imageResId;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getLocation() {
@@ -36,6 +36,30 @@ public class Job {
         this.location = location;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
     public String getDate() {
         return date;
     }
@@ -44,11 +68,11 @@ public class Job {
         this.date = date;
     }
 
-    public String getComment() {
-        return comment;
+    public int getMainImageResourceId() {
+        return mainImageResourceId;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setMainImageResourceId(int mainImageResourceId) {
+        this.mainImageResourceId = mainImageResourceId;
     }
 }

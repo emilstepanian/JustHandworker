@@ -100,7 +100,8 @@
       "location" : "Frederiksberg",
       "date" : "05/05/2017",
       "userId" : "1",
-      "categoryId" : "1"
+      "categoryId" : "1",
+      "mainImageResourceId" :"1"
     },
     {
       "id": "2",
@@ -109,7 +110,8 @@
       "location" : "Amager",
       "date" : "28/04/2017",
       "userId" : "2",
-      "categoryId" : "2"
+      "categoryId" : "2",
+      "mainImageResourceId" :"3"
     },
     {
       "id": "3",
@@ -118,7 +120,9 @@
       "location" : "Østerbro",
       "date" : "29/04/2017",
       "userId" : "3",
-      "categoryId" : "2"
+      "categoryId" : "2",
+      "mainImageResourceId" :"2"
+
     },
     {
       "id": "4",
@@ -127,7 +131,8 @@
       "location" : "Amager",
       "date" : "02/03/2017",
       "userId" : "4",
-      "categoryId" : "2"
+      "categoryId" : "2",
+      "mainImageResourceId" :"5"
     },
     {
       "id": "5",
@@ -136,7 +141,8 @@
       "location" : "Sydhavnen",
       "date" : "16/04/2017",
       "userId" : "1",
-      "categoryId" : "1"
+      "categoryId" : "1",
+      "mainImageResourceId" :"2"
     },
     {
       "id": "6",
@@ -145,7 +151,9 @@
       "location" : "Nørrebro",
       "date" : "18/04/2017",
       "userId" : "2",
-      "categoryId" : "1"
+      "categoryId" : "1",
+      "mainImageResourceId" :"6"
+
     },
     {
       "id": "7",
@@ -154,7 +162,8 @@
       "location" : "Nordvest",
       "date" : "18/04/2017",
       "userId" : "3",
-      "categoryId" : "1"
+      "categoryId" : "1",
+      "mainImageResourceId" :"0"
     },
     {
       "id": "8",
@@ -163,7 +172,9 @@
       "location" : "Sydhavnen",
       "date" : "22/01/2017",
       "userId" : "4",
-      "categoryId" : "5"
+      "categoryId" : "5",
+      "mainImageResourceId" :"5"
+
     },
     {
       "id": "9",
@@ -172,7 +183,9 @@
       "location" : "Greve",
       "date" : "29/01/2016",
       "userId" : "1",
-      "categoryId" : "1"
+      "categoryId" : "1",
+      "mainImageResourceId" :"4"
+
     },
     {
       "id": "10",
@@ -181,7 +194,9 @@
       "location" : "Holbæk",
       "date" : "25/02/2017",
       "userId" : "2",
-      "categoryId" : "4"
+      "categoryId" : "4",
+      "mainImageResourceId" :"3"
+
     }
 
   ],
@@ -189,12 +204,12 @@
     {
       "id": "1",
       "jobId" : "1",
-      "ressourcePath" : "Sti til billede 1"
+      "resourcePath" : "Sti til billede 1"
     },
     {
       "id": "1",
       "jobId" : "1",
-      "ressourcePath" : "Sti til billede 2"
+      "resourcePath" : "Sti til billede 2"
     },
     {
       "id": "1",

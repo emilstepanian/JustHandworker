@@ -20,7 +20,7 @@ public class TestData {
 
     private static final int[] icons = {R.drawable.balcony, R.drawable.wc, R.drawable.sink};
 
-
+/*
     public static List<Job> getListData() {
         List<Job> data = new ArrayList<>();
 
@@ -38,5 +38,7 @@ public class TestData {
         }
         return data;
     }
+
+    */
 
 }
