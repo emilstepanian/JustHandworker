@@ -8,9 +8,16 @@ import java.util.Date;
 
 public class Job {
 
-    private String title, description, location, date;
+    private String title, description, location, date, mainImageTitle;
     private int id, userId, categoryId, mainImageResourceId;
 
+    public String getMainImageTitle() {
+        return mainImageTitle;
+    }
+
+    public void setMainImageTitle(String mainImageTitle) {
+        this.mainImageTitle = mainImageTitle;
+    }
 
     public String getTitle() {
         return title;

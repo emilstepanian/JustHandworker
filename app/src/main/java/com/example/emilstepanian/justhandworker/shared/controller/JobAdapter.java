@@ -45,14 +45,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
         holder.description.setText(jobItem.getDescription());
         holder.location.setText(jobItem.getLocation());
         holder.date.setText(jobItem.getDate());
+        holder.image.setImageResource(holder.container.getResources().getIdentifier(jobItem.getMainImageTitle(),"drawable",holder.container.getContext().getPackageName()));
 
 
-        try {
-            holder.image.setImageResource(holder.container.getResources().getIdentifier(JSONParser.getJSONObjectById(holder.container.getContext(), "image", jobItem.getMainImageResourceId()).getString("imageTitle"),"drawable", holder.container.getContext().getPackageName()));
-
-        } catch (Exception e){
-
-        }
     }
 
     @Override

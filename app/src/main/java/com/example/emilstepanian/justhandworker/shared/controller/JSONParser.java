@@ -92,6 +92,7 @@ public class JSONParser {
                     job.setTitle(jsonJob.getString("title"));
                     job.setUserId(jsonJob.getInt("userId"));
                     job.setMainImageResourceId(jsonJob.getInt("mainImageResourceId"));
+                    job.setMainImageTitle(getJSONObjectById(context, "image", job.getMainImageResourceId()).getString("imageTitle"));
                     data.add(job);
                 }
 
