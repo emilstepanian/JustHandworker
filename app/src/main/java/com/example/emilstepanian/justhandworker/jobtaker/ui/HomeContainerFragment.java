@@ -24,7 +24,7 @@ public class HomeContainerFragment extends Fragment {
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.replace(R.id.jobtakerHomeContainer, jobRecyclerViewFragment);
        // transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-       // transaction.addToBackStack(null);
+       // transaction.addToBackStack(null); 
         transaction.commit();
 
 
