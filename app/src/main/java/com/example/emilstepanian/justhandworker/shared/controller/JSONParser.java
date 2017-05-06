@@ -21,13 +21,7 @@ import java.util.Map;
 public class JSONParser {
 
 
-    /*
 
-    for(int i = 0; i <users.length(); i++) {
-                JSONObject JSONUser = users.getJSONObject(i);
-                Log.d("TAG", "onCreate: " + JSONUser.getString("firstName"));
-            }
-     */
     public static User authorizeUser(Context context, String username, String password) {
         InputStream inputStream = null;
 
