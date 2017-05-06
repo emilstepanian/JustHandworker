@@ -17,6 +17,8 @@ import java.util.List;
  * Created by emilstepanian on 04/05/2017.
  */
 
+//Test kasper what up
+
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
 
     private List<Job> listData;
