@@ -6,10 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.emilstepanian.justhandworker.R;
-import com.example.emilstepanian.justhandworker.shared.ui.JobRecyclerViewFragment;
-import com.example.emilstepanian.justhandworker.shared.ui.MessagesTabFragment;
+
 
 public class MessagesContainerFragment extends Fragment {
     public MessagesContainerFragment() {
