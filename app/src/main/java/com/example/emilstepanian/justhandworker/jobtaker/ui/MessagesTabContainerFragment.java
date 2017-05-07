@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TableLayout;
 
 import com.example.emilstepanian.justhandworker.R;
@@ -30,14 +31,21 @@ public class MessagesTabContainerFragment extends Fragment {
         // Inflate the layout for this fragment
 
 
+
+
         View messagesTabContainerView = inflater.inflate(R.layout.fragment_messages_tab_container, container, false);
 
 
         //Activity context = (AppCompatActivity) getParentFragment().getActivity();
         Toolbar toolbar = (Toolbar) messagesTabContainerView.findViewById(R.id.tabs_toolbar);
 
-        //Needed to avoid api level error
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        //Empty the title bar - this works
+        //((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        //((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        //Remove the titlebar/the gap between the fragment and the top of the screen
+        toolbar.setVisibility(View.GONE);
+
 
         TabLayout tabLayout = (TabLayout) messagesTabContainerView.findViewById(R.id.tabs_layout);
 

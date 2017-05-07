@@ -6,8 +6,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.example.emilstepanian.justhandworker.R;
 
@@ -50,6 +52,14 @@ public class JobTakerMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Prøvede at fjerne actionbar fra activity, virkede ikke rigtig
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //this.getActionBar().hide();
+
+        //Nedenstående giver bare følgende: This activity already has an action bar supplied by the window decore. Do not request wi........
+        //ActionBar actionbar = getSupportActionBar();
+        //actionbar.hide();
+
         setContentView(R.layout.activity_jobtaker_main);
 
         homeFragment = new HomeContainerFragment();
