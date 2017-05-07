@@ -106,11 +106,11 @@
     {
       "id": "2",
       "title" : "Toilet virker ikke",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
       "location" : "Amager",
       "date" : "28/04/2017",
       "userId" : "2",
-      "categoryId" : "2",
+      "categoryId" : "3",
       "mainImageResourceId" :"0"
     },
     {
@@ -127,7 +127,7 @@
     {
       "id": "4",
       "title" : "Smadret vask",
-      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
+      "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       "location" : "Amager",
       "date" : "02/03/2017",
       "userId" : "4",
@@ -140,7 +140,7 @@
       "description" : "Lorem",
       "location" : "Sydhavnen",
       "date" : "16/04/2017",
-      "userId" : "1",
+      "userId" : "4",
       "categoryId" : "1",
       "mainImageResourceId" :"1"
     },
@@ -150,7 +150,7 @@
       "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed fermentum dignissim malesuada. Cras blandit lacinia ante a lacinia.",
       "location" : "Nørrebro",
       "date" : "18/04/2017",
-      "userId" : "2",
+      "userId" : "5",
       "categoryId" : "1",
       "mainImageResourceId" :"1"
 
@@ -161,7 +161,7 @@
       "description" : "Lorem ipsum dolor sit amet,  dapibus pretium. In hac habitasse platea dictumst. Quisque arcu magna, hendrerit eget rhoncus id, porta id ipsum. Sed ferme",
       "location" : "Nordvest",
       "date" : "18/04/2017",
-      "userId" : "3",
+      "userId" : "6",
       "categoryId" : "1",
       "mainImageResourceId" :"2"
     },
@@ -171,7 +171,7 @@
       "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac blandit lacinia ante a lacinia.",
       "location" : "Sydhavnen",
       "date" : "22/01/2017",
-      "userId" : "4",
+      "userId" : "0",
       "categoryId" : "5",
       "mainImageResourceId" :"0"
 
@@ -182,7 +182,7 @@
       "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mauris velit. Ut ut scelerisque est. Morbi fringilla dapibus pretium. In hac habitasse platea . Cras blandit lacinia ante a lacinia.",
       "location" : "Greve",
       "date" : "29/01/2016",
-      "userId" : "1",
+      "userId" : "4",
       "categoryId" : "1",
       "mainImageResourceId" :"2"
 
@@ -294,36 +294,66 @@
       "professionId" : "1"
     }
   ],
+  "requiredInfoValue" : [
+    {
+      "id": "0",
+      "requiredInfoId": "1",
+      "jobId": "2",
+      "value" :"Specification 1"
+
+    },
+    {
+      "id": "1",
+      "requiredInfoId": "2",
+      "jobId": "2",
+      "value" :"Specification 2"
+
+    },
+    {
+      "id": "2",
+      "requiredInfoId": "3",
+      "jobId": "2",
+      "value" :"Specification 3"
+
+    },
+    {
+      "id": "3",
+      "requiredInfoId": "0",
+      "jobId": "2",
+      "value" :"Specification 0"
+
+    }
+  ],
   "requiredInfo" : [
     {
       "id": "0",
       "categoryId" : "2",
-      "title" : "Titel på requiredInfo 1"
+      "title" : "RequiredInfo 0"
     },
     {
       "id": "1",
       "categoryId" : "3",
-      "title" : "Titel på requiredInfo 2"
+      "title" : "RequiredInfo 1"
     },
     {
       "id": "2",
       "categoryId" : "1",
-      "title" : "Titel på requiredInfo 3"
+      "title" : "RequiredInfo 2"
     },
     {
       "id": "3",
       "categoryId" : "4",
-      "title" : "Titel på requiredInfo 4"
+      "title" : "RequiredInfo 3"
     },
     {
       "id": "4",
       "categoryId" : "3",
-      "title" : "Titel på requiredInfo 5"
+      "title" : "RequiredInfo 4"
     },
     {
       "id": "5",
       "categoryId" : "3",
-      "title" : "Titel på requiredInfo 6"
+      "title" : "RequiredInfo 6"
     }
   ],
   "message" : [
