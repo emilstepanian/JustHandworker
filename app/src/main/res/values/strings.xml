@@ -25,5 +25,7 @@
     </string>
     <string name="title_activity_job_owner_main">JobOwnerMainActivity</string>
     <string name="welcome_message_for_jobOwner">Det virker! Logget ind som jobowner</string>
+    <string name="tab1_title_from_bundle">Bud</string>
+    <string name="tab2_title_from_bundle">Aftaler</string>
 
 </resources>

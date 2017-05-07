@@ -16,6 +16,7 @@ import com.example.emilstepanian.justhandworker.R;
 public class JobTakerMainActivity extends AppCompatActivity {
 
     private Fragment fragment, homeFragment, messagesFragment, profileFragment;
+    Bundle bundle;
     private FragmentManager fragmentManager;
     private BottomNavigationView navigation;
 
@@ -34,6 +35,11 @@ public class JobTakerMainActivity extends AppCompatActivity {
                 case R.id.navigation_messages:
 
                     fragment = messagesFragment;
+                    //Set parameters to be used for the name of the tabs in the MessagesView for the jobtaker.
+                    bundle = new Bundle();
+                    bundle.putStringArray("tabTitles", new String[]{getString(R.string.tab1_title_from_bundle), getString(R.string.tab2_title_from_bundle)});
+                    fragment.setArguments(bundle);
+
                     break;
 
                 case R.id.navigation_profile:
@@ -76,6 +82,8 @@ public class JobTakerMainActivity extends AppCompatActivity {
         fragment = new HomeContainerFragment();
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_container, fragment).commit();
+
+
 
     }
 

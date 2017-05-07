@@ -29,17 +29,15 @@ public class MessagesTabContainerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-
-
-
         View messagesTabContainerView = inflater.inflate(R.layout.fragment_messages_tab_container, container, false);
 
+        //Retrieve any extra arguments
+        Bundle extras = getArguments();
 
         //Activity context = (AppCompatActivity) getParentFragment().getActivity();
         Toolbar toolbar = (Toolbar) messagesTabContainerView.findViewById(R.id.tabs_toolbar);
 
-        //Empty the title bar - this works
+        //Empty the title bar - this works, but only removes the text
         //((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         //((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -49,9 +47,14 @@ public class MessagesTabContainerFragment extends Fragment {
 
         TabLayout tabLayout = (TabLayout) messagesTabContainerView.findViewById(R.id.tabs_layout);
 
-        //TODO: Get name for the tab from bundle instead of hardcoded value
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
+        //Set title of tabs based on which activity we're coming from.
+        if(extras != null){
+            String [] tabTitles = extras.getStringArray("tabTitles");
+            tabLayout.addTab(tabLayout.newTab().setText(tabTitles[0]));
+            tabLayout.addTab(tabLayout.newTab().setText(tabTitles[1]));
+
+        }
+
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) messagesTabContainerView.findViewById(R.id.tabs_pager);

@@ -19,6 +19,13 @@ public class MessagesContainerFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_jobtaker_messages_container, container, false);
         Fragment messagesTabContainerFragment = new MessagesTabContainerFragment();
 
+        //Pass along any extras to the fragment replacing the containerfragment
+        Bundle extras = getArguments();
+        if(extras != null){
+            messagesTabContainerFragment.setArguments(extras);
+        }
+
+
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.replace(R.id.jobtakerMessagesContainer, messagesTabContainerFragment);
         // transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
