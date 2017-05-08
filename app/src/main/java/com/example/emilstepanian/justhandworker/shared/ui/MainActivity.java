@@ -33,9 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Delete these two lines and un-comment code beneath to get login page.
-        Intent i = new Intent(this, JobTakerMainActivity.class);
-        startActivity(i);
-        /*
+      //  Intent i = new Intent(this, JobTakerMainActivity.class);
+       // startActivity(i);
+
+
+        //
+
         loginBtn = (Button) findViewById(R.id.btn_login);
         signupLink = (TextView) findViewById(R.id.link_signup);
         usernameInput = (EditText) findViewById(R.id.input_username);
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        */
+        //
 
 
 

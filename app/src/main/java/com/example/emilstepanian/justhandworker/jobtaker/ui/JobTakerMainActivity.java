@@ -28,7 +28,10 @@ public class JobTakerMainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fragment = homeFragment;
+                    if(fragment != homeFragment) {
+                        fragment = homeFragment;
+                    }
+
                     break;
 
                 case R.id.navigation_messages:
@@ -38,11 +41,17 @@ public class JobTakerMainActivity extends AppCompatActivity {
                         bundle = new Bundle();
                         bundle.putStringArray("tabTitles", new String[]{getString(R.string.tab1_title_from_bundle), getString(R.string.tab2_title_from_bundle)});
                         fragment.setArguments(bundle);
-                        break;
                     }
 
+                    break;
+
+
                 case R.id.navigation_profile:
-                    fragment = profileFragment;
+
+                    if(fragment != profileFragment){
+                        fragment = profileFragment;
+                    }
+
                     break;
             }
 
