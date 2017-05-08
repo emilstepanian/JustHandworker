@@ -47,7 +47,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
     @Override
     public void onBindViewHolder(JobHolder holder, int position) {
         final JobHolder finalHolder = holder;
-            Job jobItem = listData.get(position);
+            final Job jobItem = listData.get(position);
         finalHolder.title.setText(jobItem.getTitle());
         finalHolder.description.setText(jobItem.getDescription());
         finalHolder.location.setText(jobItem.getLocation());
@@ -59,6 +59,16 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(finalHolder.container.getContext(), JobPageActivity.class);
+                i.putExtra("id", jobItem.getId());
+                i.putExtra("title", jobItem.getTitle());
+                i.putExtra("description", jobItem.getDescription());
+                i.putExtra("location", jobItem.getLocation());
+                i.putExtra("date", jobItem.getDate());
+                i.putExtra("imageTitle", jobItem.getMainImageTitle());
+                i.putExtra("imageResourceId", jobItem.getMainImageResourceId());
+                i.putExtra("categoryId", jobItem.getCategoryId());
+                i.putExtra("userId", jobItem.getUserId());
+
                 finalHolder.container.getContext().startActivity(i);
             }
 

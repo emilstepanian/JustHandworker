@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.model.Image;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
+import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
+import com.example.emilstepanian.justhandworker.shared.model.RequiredInfoValue;
 import com.example.emilstepanian.justhandworker.shared.model.User;
 
 import org.json.JSONArray;
@@ -56,12 +58,7 @@ public class JSONParser {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } /*finally {
-            try {
-                if (inputStream != null) inputStream.close();
-            } catch (Exception squish) {
-            }
-        }*/
+        }
 
         return authorizedUser;
 
@@ -74,44 +71,84 @@ public class JSONParser {
 
             JSONArray jsonArray = getJSONArray(inputStream, table);
 
-            if (table.equals("job")) {
-               data  = new ArrayList<>();
+            switch (table) {
+                case "job":
+                    data = new ArrayList<>();
 
-                for (int i = 0; i < jsonArray.length(); i++) {
+                    for (int i = 0; i < jsonArray.length(); i++) {
 
-                    JSONObject jsonJob = jsonArray.getJSONObject(i);
-
-
-                    Job job = new Job();
-
-                    job.setId(jsonJob.getInt("id"));
-                    job.setLocation(jsonJob.getString("location"));
-                    job.setCategoryId(jsonJob.getInt("categoryId"));
-                    job.setDate(jsonJob.getString("date"));
-                    job.setDescription(jsonJob.getString("description"));
-                    job.setTitle(jsonJob.getString("title"));
-                    job.setUserId(jsonJob.getInt("userId"));
-                    job.setMainImageResourceId(jsonJob.getInt("mainImageResourceId"));
-                    job.setMainImageTitle(getJSONObjectById(context, "image", job.getMainImageResourceId()).getString("imageTitle"));
-                    data.add(job);
-                }
-
-                return data;
-            } else if(table.equals("image")) {
-                data = new ArrayList<>();
-
-                for (int i = 0; i < jsonArray.length(); i++) {
-
-                    JSONObject jsonImage = jsonArray.getJSONObject(i);
+                        JSONObject jsonJob = jsonArray.getJSONObject(i);
 
 
-                    Image image = new Image();
+                        Job job = new Job();
 
-                    image.setId(jsonImage.getInt("id"));
-                    image.setImageTitle(jsonImage.getString("imageTitle"));
-                    image.setJobId(jsonImage.getInt("id"));
+                        job.setId(jsonJob.getInt("id"));
+                        job.setLocation(jsonJob.getString("location"));
+                        job.setCategoryId(jsonJob.getInt("categoryId"));
+                        job.setDate(jsonJob.getString("date"));
+                        job.setDescription(jsonJob.getString("description"));
+                        job.setTitle(jsonJob.getString("title"));
+                        job.setUserId(jsonJob.getInt("userId"));
+                        job.setMainImageResourceId(jsonJob.getInt("mainImageResourceId"));
+                        job.setMainImageTitle(getJSONObjectById(context, "image", job.getMainImageResourceId()).getString("imageTitle"));
+                        data.add(job);
+                    }
 
-                    data.add(image);
+                    return data;
+                case "image":
+                    data = new ArrayList<>();
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonImage = jsonArray.getJSONObject(i);
+
+
+                        Image image = new Image();
+
+                        image.setId(jsonImage.getInt("id"));
+                        image.setImageTitle(jsonImage.getString("imageTitle"));
+                        image.setJobId(jsonImage.getInt("id"));
+
+                        data.add(image);
+                    }
+                    break;
+
+                case "requiredInfo":
+                    data = new ArrayList<>();
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonRequiredInfo = jsonArray.getJSONObject(i);
+
+
+                        RequiredInfo requiredInfo = new RequiredInfo();
+
+                        requiredInfo.setId(jsonRequiredInfo.getInt("id"));
+                        requiredInfo.setCategoryId(jsonRequiredInfo.getInt("categoryId"));
+                        requiredInfo.setTitle(jsonRequiredInfo.getString("title"));
+
+                        data.add(requiredInfo);
+                    }
+                    break;
+
+                case "requiredInfoValue": {
+                    data = new ArrayList<>();
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonRequiredInfoValue = jsonArray.getJSONObject(i);
+
+                        RequiredInfoValue requiredInfoValue = new RequiredInfoValue();
+
+                        requiredInfoValue.setId(jsonRequiredInfoValue.getInt("id"));
+                        requiredInfoValue.setJobId(jsonRequiredInfoValue.getInt("jobId"));
+                        requiredInfoValue.setRequiredInfoId(jsonRequiredInfoValue.getInt("requiredInfoId"));
+                        requiredInfoValue.setValue(jsonRequiredInfoValue.getString("value"));
+                        data.add(requiredInfoValue);
+                    }
+                    break;
+
+
                 }
             }
         } catch (Exception e) {
