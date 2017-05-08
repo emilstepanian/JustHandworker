@@ -40,6 +40,7 @@ public class MessagesTabContainerFragment extends Fragment {
 
 
 
+
         TabLayout tabLayout = (TabLayout) messagesTabContainerView.findViewById(R.id.tabs_layout);
 
         //Set title of tabs based on which activity we're coming from.

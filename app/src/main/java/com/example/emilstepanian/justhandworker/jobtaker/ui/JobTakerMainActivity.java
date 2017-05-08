@@ -28,22 +28,18 @@ public class JobTakerMainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
                     fragment = homeFragment;
                     break;
 
                 case R.id.navigation_messages:
-
                     fragment = messagesFragment;
                     //Set parameters to be used for the name of the tabs in the MessagesView for the jobtaker.
                     bundle = new Bundle();
                     bundle.putStringArray("tabTitles", new String[]{getString(R.string.tab1_title_from_bundle), getString(R.string.tab2_title_from_bundle)});
                     fragment.setArguments(bundle);
-
                     break;
 
                 case R.id.navigation_profile:
-
                     fragment = profileFragment;
                     break;
             }

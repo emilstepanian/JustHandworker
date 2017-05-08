@@ -26,7 +26,7 @@
         <activity
             android:name=".jobtaker.ui.JobTakerMainActivity"
             android:label="@string/title_activity_workman_main"
-            android:theme="@style/AppThemeNoActionBar"
+            android:theme="@style/AppTheme"
             />
         <activity android:name=".shared.ui.SignupActivity" />
         <activity
