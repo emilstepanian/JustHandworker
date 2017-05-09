@@ -3,15 +3,30 @@ package com.example.emilstepanian.justhandworker.jobowner.ui;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.jobtaker.ui.*;
+import com.example.emilstepanian.justhandworker.jobtaker.ui.HomeContainerFragment;
+import com.example.emilstepanian.justhandworker.shared.model.User;
 
 public class JobOwnerMainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    private User currentUser;
+
+
+
+    private Fragment fragment, homeFragment, profileFragment;
+    private FragmentManager fragmentManager;
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -19,17 +34,26 @@ public class JobOwnerMainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_messages:
-                    mTextMessage.setText(R.string.title_messages);
-                    return true;
-                case R.id.navigation_profile:
-                    mTextMessage.setText(R.string.title_profile);
-                    return true;
+                case R.id.jobowner_navigation_home:
+                    if(fragment != homeFragment) {
+                        fragment = homeFragment;
+                    }
+
+                    break;
+
+
+                case R.id.jobowner_navigation_profile:
+
+                    if(fragment != profileFragment){
+                        fragment = profileFragment;
+                    }
+
+                    break;
             }
-            return false;
+
+            final FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.jobowner_main_container, fragment).commit();
+            return true;
         }
 
     };
@@ -37,11 +61,29 @@ public class JobOwnerMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_owner_main);
+        setContentView(R.layout.activity_jobowner_main);
+        Bundle userInfo = getIntent().getExtras();
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        currentUser = new User(userInfo.getInt("id"), userInfo.getInt("professionId"), userInfo.getString("firstName"), userInfo.getString("lastName"), userInfo.getString("username"), userInfo.getString(("password")));
+
+
+
+        homeFragment = new JobOwnerHomeContainerFragment();
+        profileFragment = new JobOwnerProfileContainerFragment();
+
+
+
+        //Message that shows which menuitem we have selected
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.jobowner_main_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        fragmentManager = getSupportFragmentManager();
+
+        fragment = new HomeContainerFragment();
+        final FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.jobowner_main_container, fragment).commit();
+
     }
 
 }

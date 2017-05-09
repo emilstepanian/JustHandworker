@@ -101,11 +101,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void onLoginSucess(User user) {
 
+        Bundle userInfo = new Bundle();
+        userInfo.putString("firstName", user.getFirstName());
+        userInfo.putString("lastName", user.getLastName());
+        userInfo.putString("password", user.getPassword());
+        userInfo.putString("username", user.getUsername());
+        userInfo.putInt("id", user.getId());
+        userInfo.putInt("professionId", user.getProfessionId());
+
+
         if (user.getProfessionId() != 0) {
+
             Intent i = new Intent(this, JobTakerMainActivity.class);
+
+            i.putExtras(userInfo);
+
             startActivity(i);
+
+
         } else {
             Intent i = new Intent(this, JobOwnerMainActivity.class);
+
+            i.putExtras(userInfo);
             startActivity(i);
         }
 
