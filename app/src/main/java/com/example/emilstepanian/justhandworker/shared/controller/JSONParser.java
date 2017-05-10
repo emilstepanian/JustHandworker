@@ -3,6 +3,7 @@ package com.example.emilstepanian.justhandworker.shared.controller;
 import android.content.Context;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.shared.model.Bid;
 import com.example.emilstepanian.justhandworker.shared.model.Image;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
 import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
@@ -147,8 +148,21 @@ public class JSONParser {
                         data.add(requiredInfoValue);
                     }
                     break;
+                }
 
 
+                case "bid": {
+                    data = new ArrayList();
+
+                    for(int i = 0; i < jsonArray.length(); i++){
+                        JSONObject jsonBid = jsonArray.getJSONObject(i);
+                        Bid bid = new Bid();
+                        bid.setId(jsonBid.getInt("id"));
+                        bid.setPrice(jsonBid.getDouble("price"));
+                        bid.setUserId(jsonBid.getInt("userId"));
+                        bid.setAccepted(jsonBid.getBoolean("isAccepted"));
+                        bid.setDate(jsonBid.getString("date"));
+                    }
                 }
             }
         } catch (Exception e) {

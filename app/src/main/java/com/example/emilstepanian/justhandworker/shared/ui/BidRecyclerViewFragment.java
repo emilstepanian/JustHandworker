@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.controller.BidsAdapter;
+import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.model.Bid;
 ;
 
@@ -48,6 +49,8 @@ public class BidRecyclerViewFragment extends Fragment {
         if (getArguments() != null) {
             b = getArguments();
         }
+
+
 
         switch (b.getString("content")){
             case "content1":
@@ -89,37 +92,37 @@ public class BidRecyclerViewFragment extends Fragment {
 
     private List<Bid> createActiveBidsTestData(){
         List<Bid> bidsList = new ArrayList<>();
-        Bid b1 = new Bid("Bud 1");
-        Bid b2 = new Bid("Bud 2");
-        Bid b3 = new Bid("Bud 3");
-        Bid b4 = new Bid("Bud 4");
+//        Bid b1 = new Bid();
+//        Bid b2 = new Bid("Bud 2");
+//        Bid b3 = new Bid("Bud 3");
+//        Bid b4 = new Bid("Bud 4");
 
 
 
-        b1.setImageId(R.drawable.balcony);
-        b2.setImageId(R.drawable.wc);
-        b3.setImageId(R.drawable.sink);
+//        b1.setImageId(R.drawable.balcony);
+//        b2.setImageId(R.drawable.wc);
+//        b3.setImageId(R.drawable.sink);
 
-
-        bidsList.add(b1);
-        bidsList.add(b2);
-        bidsList.add(b3);
-        bidsList.add(b4);
-
+//
+//        bidsList.add(b1);
+//        bidsList.add(b2);
+//        bidsList.add(b3);
+//        bidsList.add(b4);
+//
         return bidsList;
     }
 
     private List<Bid> createDealsBidsTestData(){
 
         List<Bid> bidsList = new ArrayList<>();
-        Bid b1 = new Bid("Bud 1");
-        Bid b2 = new Bid("Bud 2");
-
-        b1.setImageId(R.drawable.wc);
-        b2.setImageId(R.drawable.sink);
-
-        bidsList.add(b1);
-        bidsList.add(b2);
+//        Bid b1 = new Bid("Bud 1");
+//        Bid b2 = new Bid("Bud 2");
+//
+//        b1.setImageId(R.drawable.wc);
+//        b2.setImageId(R.drawable.sink);
+//
+//        bidsList.add(b1);
+//        bidsList.add(b2);
 
         return bidsList;
     }

@@ -71,13 +71,9 @@ public class JobTakerMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Prøvede at fjerne actionbar fra activity, virkede ikke rigtig
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //this.getActionBar().hide();
 
-        //Nedenstående giver bare følgende: This activity already has an action bar supplied by the window decore. Do not request wi........
-        //ActionBar actionbar = getSupportActionBar();
-        //actionbar.hide();
+        //Change title from 'JobtakerMainActivity'
+        getSupportActionBar().setTitle("JustHåndværker");
 
         Bundle userInfo = getIntent().getExtras();
 

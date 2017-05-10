@@ -26,7 +26,7 @@
 
 
                 <TextView
-                    android:id="@+id/bid_name"
+                    android:id="@+id/bid_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top|left"
@@ -35,7 +35,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingTop="10dp"
-                    android:text="Derp Derpsen"
+                    android:text="Smadre vask og sår'n"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
 
@@ -46,7 +46,6 @@
                     android:paddingLeft="16dp">
 
                     <ImageView
-
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:layout_weight="1"
@@ -54,7 +53,7 @@
                         card_view:srcCompat="@drawable/ic_place_black_24dp" />
 
                     <TextView
-
+                        android:id="@+id/bid_location_text"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:layout_weight="1"
@@ -80,13 +79,16 @@
 
                         <TextView
 
+                            android:id="@+id/bid_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
                             android:layout_weight="1"
                             android:ellipsize="end"
                             android:maxLines="5"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus, turpis non interdum varius, turpis metus cursus massa, in volutpat mi arcu a risus"
-                            android:textSize="10sp" />
+                            android:text="1500 kr."
+                            android:textAlignment="center"
+                            android:textSize="30sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -97,15 +99,29 @@
                     android:gravity="bottom"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:tint="@color/colorPrimary"
+                        card_view:srcCompat="@drawable/ic_account_circle_white_24dp"
+                        />
 
+
+                    <TextView
+                        android:id="@+id/bid_jobOwner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jakob Derpalerp"/>
+
+                    <TextView
+                        android:id="@+id/bid_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|right"
                         android:paddingBottom="5dp"
                         android:paddingRight="10dp"
-                        android:text="10. Maj"
+                        android:text="29/04/2017"
                         android:textColor="@color/colorPrimary"
                         android:textSize="10sp" />
                 </LinearLayout>

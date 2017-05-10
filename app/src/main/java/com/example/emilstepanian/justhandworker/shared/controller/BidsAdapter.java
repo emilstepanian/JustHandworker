@@ -2,7 +2,6 @@ package com.example.emilstepanian.justhandworker.shared.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +11,11 @@ import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.model.Bid;
+import com.example.emilstepanian.justhandworker.shared.model.Job;
+import com.example.emilstepanian.justhandworker.shared.model.User;
 import com.example.emilstepanian.justhandworker.shared.ui.ChatActivity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by Kasper on 07/05/2017.
@@ -27,11 +26,16 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
     private List<Bid> bidList;
     private LayoutInflater inflater;
+    private List<User> userList;
+    private List<Job> jobsList;
 
 
     public BidsAdapter(List<Bid> bidsList, Context context) {
         this.bidList  = bidsList;
         this.inflater = LayoutInflater.from(context);
+
+        userList = JSONParser.getListData(context, "user");
+        jobsList = JSONParser.getListData(context, "job");
     }
 
 
@@ -43,9 +47,26 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
     @Override
     public void onBindViewHolder(BidHolder holder, int position) {
+
         final BidHolder bidHolder = holder;
         final Bid bidItem = bidList.get(position);
-        bidHolder.name.setText(bidItem.getName());
+        bidHolder.price.setText(Double.toString(bidItem.getPrice()));
+        bidHolder.date.setText(bidItem.getDate());
+
+        for(User user : userList){
+            if(user.getId() == bidItem.getUserId()){
+                bidHolder.userId.setText(user.getFirstName() + " " + user.getLastName());
+            }
+        }
+
+        for(Job job : jobsList){
+            if(bidItem.getJobId() == job.getId()){
+                bidHolder.title.setText(job.getTitle());
+                bidHolder.image.setImageResource(job.getMainImageResourceId());
+                bidHolder.location.setText(job.getLocation());
+            }
+        }
+
 
         bidHolder.container.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -57,6 +78,21 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
     }
 
 
+/*
+    //Model members
+    String name;
+    int jobId;
+    double price;
+    String comment;
+    int userId;
+    boolean isAccepted;
+    Date date;
+
+    //View members
+    Drawable image;
+
+    */
+
     @Override
     public int getItemCount() {
         return bidList.size();
@@ -64,12 +100,24 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
     class BidHolder extends RecyclerView.ViewHolder{
 
-        private TextView name;
         private View container;
+        private ImageView image;
+        private TextView title;
+        private TextView price;
+        private TextView location;
+        private TextView date;
+        private TextView userId;
+
+
 
         public BidHolder(View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.bid_name);
+            image = (ImageView) itemView.findViewById(R.id.bid_image);
+            title = (TextView) itemView.findViewById(R.id.bid_title);
+            price = (TextView) itemView.findViewById(R.id.bid_price);
+            location = (TextView) itemView.findViewById(R.id.bid_location_text);
+            date = (TextView) itemView.findViewById(R.id.bid_date);
+            userId = (TextView) itemView.findViewById(R.id.bid_jobOwner);
             container = itemView.findViewById(R.id.bid_card_view);
         }
 

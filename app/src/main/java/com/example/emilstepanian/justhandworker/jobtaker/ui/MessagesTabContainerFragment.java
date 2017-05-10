@@ -28,12 +28,6 @@ public class MessagesTabContainerFragment extends Fragment {
         //Retrieve any extra arguments
         Bundle extras = getArguments();
 
-        //Todo: Skal vi hide actionbaren? Ser lidt fjollet ud. Find i hvert fald ud af, om det kan lade sig gøre, uden at animere det at den skjules
-        //Hide the actionbar, if it is showing
-        if(((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()){
-            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-        }
-
         //Get reference to tablayout
         TabLayout tabLayout = (TabLayout) messagesTabContainerView.findViewById(R.id.tabs_layout);
 

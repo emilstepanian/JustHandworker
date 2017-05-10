@@ -430,27 +430,24 @@
       "id" : "0",
       "jobId" : "1",
       "price" : "250",
-      "comment" : "Jeg er interesseret",
       "userId" : "3",
-      "isAccepted" : "0",
+      "isAccepted" : "false",
       "date" : "08/05/2017"
     },
     {
       "id" : "1",
       "jobId" : "1",
       "price" : "300",
-      "comment" : "Vælg mig",
       "userId" : "4",
-      "isAccepted" : "0",
+      "isAccepted" : "false",
       "date" : "08/05/2017"
     },
     {
       "id" : "2",
       "jobId" : "1",
       "price" : "500",
-      "comment" : "Lidt dyrt men jeg kan garantere god kvalitet ",
       "userId" : "5",
-      "isAccepted" : "0",
+      "isAccepted" : "true",
       "date" : "08/05/2017"
     }
 
