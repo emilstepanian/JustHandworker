@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class ProfilePageFragment extends Fragment {
 
     View fragmentView;
     TextView nameField, professionField;
+    LinearLayout professionIdLayout;
     RatingBar ratingBar;
 
 
@@ -38,6 +40,7 @@ public class ProfilePageFragment extends Fragment {
         ratingBar = (RatingBar) fragmentView.findViewById(R.id.rating);
         nameField = (TextView) fragmentView.findViewById(R.id.profile_page_fullname);
         professionField = (TextView) fragmentView.findViewById(R.id.profile_page_profession);
+        professionIdLayout = (LinearLayout) fragmentView.findViewById(R.id.professionIdLayout);
 
         setUser();
         return fragmentView;
