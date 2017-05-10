@@ -37,7 +37,7 @@ public class TabsSlideAdapter extends FragmentStatePagerAdapter {
             case 1:
                 BidRecyclerViewFragment tab2 = new BidRecyclerViewFragment();
                 Bundle b2 = new Bundle();
-                b2.putString("content", "content1");
+                b2.putString("content", "content2");
                 tab2.setArguments(b2);
                 return tab2;
 

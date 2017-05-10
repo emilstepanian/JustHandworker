@@ -32,11 +32,14 @@ public class JobTakerMainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navigation_messages:
-                    fragment = messagesFragment;
-                    //Set parameters to be used for the name of the tabs in the MessagesView for the jobtaker.
-                    bundle = new Bundle();
-                    bundle.putStringArray("tabTitles", new String[]{getString(R.string.tab1_title_from_bundle), getString(R.string.tab2_title_from_bundle)});
-                    fragment.setArguments(bundle);
+                    //Only set argument of fragment if it is not already the active fragment
+                    if(fragment != messagesFragment){
+                        fragment = messagesFragment;
+                        //Set parameters to be used for the name of the tabs in the MessagesView for the jobtaker.
+                        bundle = new Bundle();
+                        bundle.putStringArray("tabTitles", new String[]{getString(R.string.tab1_title_from_bundle), getString(R.string.tab2_title_from_bundle)});
+                        fragment.setArguments(bundle);
+                    }
                     break;
 
                 case R.id.navigation_profile:
@@ -54,21 +57,11 @@ public class JobTakerMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Prøvede at fjerne actionbar fra activity, virkede ikke rigtig
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //this.getActionBar().hide();
-
-        //Nedenstående giver bare følgende: This activity already has an action bar supplied by the window decore. Do not request wi........
-        //ActionBar actionbar = getSupportActionBar();
-        //actionbar.hide();
-
         setContentView(R.layout.activity_jobtaker_main);
 
         homeFragment = new HomeContainerFragment();
         messagesFragment = new MessagesContainerFragment();
         profileFragment = new ProfileContainerFragment();
-
-        //Message that shows which menuitem we have selected
 
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -27,20 +28,13 @@ public class MessagesTabContainerFragment extends Fragment {
         //Retrieve any extra arguments
         Bundle extras = getArguments();
 
-        //Activity context = (AppCompatActivity) getParentFragment().getActivity();
-        Toolbar toolbar = (Toolbar) messagesTabContainerView.findViewById(R.id.tabs_toolbar);
+        //Todo: Skal vi hide actionbaren? Ser lidt fjollet ud. Find i hvert fald ud af, om det kan lade sig gøre, uden at animere det at den skjules
+        //Hide the actionbar, if it is showing
+        if(((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()){
+            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        }
 
-        //Empty the title bar - this works, but only removes the text
-        //((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        //((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        //Remove the titlebar/the gap between the fragment and the top of the screen
-        toolbar.setVisibility(View.GONE);
-
-
-
-
-
+        //Get reference to tablayout
         TabLayout tabLayout = (TabLayout) messagesTabContainerView.findViewById(R.id.tabs_layout);
 
         //Set title of tabs based on which activity we're coming from.
@@ -49,7 +43,6 @@ public class MessagesTabContainerFragment extends Fragment {
             tabLayout.addTab(tabLayout.newTab().setText(tabTitles[0]));
             tabLayout.addTab(tabLayout.newTab().setText(tabTitles[1]));
         }
-
 
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -95,7 +88,14 @@ public class MessagesTabContainerFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        //If the activity is paused, show the actionbar again
+        if(!((AppCompatActivity) getActivity()).getSupportActionBar().isShowing()){
+            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        }
+    }
 }
 
 

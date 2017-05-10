@@ -26,14 +26,13 @@
         <activity
             android:name=".jobtaker.ui.JobTakerMainActivity"
             android:label="@string/title_activity_workman_main"
-            android:theme="@style/AppTheme"
-            />
+            android:theme="@style/AppTheme" />
         <activity android:name=".shared.ui.SignupActivity" />
         <activity
             android:name=".jobowner.ui.JobOwnerMainActivity"
-            android:label="@string/title_activity_job_owner_main"
-            />
-        <activity android:name=".shared.ui.JobPageActivity"></activity>
+            android:label="@string/title_activity_job_owner_main" />
+        <activity android:name=".shared.ui.JobPageActivity" />
+        <activity android:name=".shared.ui.ChatActivity"></activity>
     </application>
 
 </manifest>
