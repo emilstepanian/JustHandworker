@@ -80,6 +80,7 @@ public class JobPageActivity extends AppCompatActivity {
             public void run() {
                 try {
                     JSONObject jsonUser = JSONParser.getJSONObjectById(getApplicationContext(), "user", jobData.getInt("userId"));
+                    System.out.println("USER USER USER: " + jobData.getInt("userId"));
                     fullName.setText(jsonUser.getString("firstName") + " " + jsonUser.getString("lastName"));
 
                 } catch (Exception e){

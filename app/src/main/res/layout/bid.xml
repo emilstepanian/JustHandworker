@@ -35,7 +35,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingTop="10dp"
-                    android:text="Smadre vask og sår'n"
+                    android:text="Smadret vask og sår'n"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
 
@@ -87,7 +87,7 @@
                             android:ellipsize="end"
                             android:maxLines="5"
                             android:text="1500 kr."
-                            android:textAlignment="center"
+                            android:gravity="left"
                             android:textSize="30sp" />
                     </LinearLayout>
 

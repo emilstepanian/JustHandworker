@@ -436,15 +436,15 @@
     },
     {
       "id" : "1",
-      "jobId" : "1",
+      "jobId" : "2",
       "price" : "300",
-      "userId" : "4",
+      "userId" : "2",
       "isAccepted" : "false",
       "date" : "08/05/2017"
     },
     {
       "id" : "2",
-      "jobId" : "1",
+      "jobId" : "3",
       "price" : "500",
       "userId" : "5",
       "isAccepted" : "true",

@@ -73,6 +73,25 @@ public class JSONParser {
             JSONArray jsonArray = getJSONArray(inputStream, table);
 
             switch (table) {
+
+                case "user":
+                    data = new ArrayList();
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonUser = jsonArray.getJSONObject(i);
+                        User user = new User();
+
+                        user.setId(jsonUser.getInt("id"));
+                        user.setFirstName(jsonUser.getString("firstName"));
+                        user.setLastName(jsonUser.getString("lastName"));
+                        user.setUsername(jsonUser.getString("username"));
+                        user.setPassword(jsonUser.getString("password"));
+                        user.setProfessionId(jsonUser.getInt("professionId"));
+
+                        data.add(user);
+                    }
+                    break;
+
+
                 case "job":
                     data = new ArrayList<>();
 
@@ -94,8 +113,9 @@ public class JSONParser {
                         job.setMainImageTitle(getJSONObjectById(context, "image", job.getMainImageResourceId()).getString("imageTitle"));
                         data.add(job);
                     }
+                    break;
 
-                    return data;
+
                 case "image":
                     data = new ArrayList<>();
 
@@ -132,7 +152,8 @@ public class JSONParser {
                     }
                     break;
 
-                case "requiredInfoValue": {
+
+                case "requiredInfoValue":
                     data = new ArrayList<>();
 
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -148,10 +169,10 @@ public class JSONParser {
                         data.add(requiredInfoValue);
                     }
                     break;
-                }
 
 
-                case "bid": {
+
+                case "bid":
                     data = new ArrayList();
 
                     for(int i = 0; i < jsonArray.length(); i++){
@@ -162,8 +183,12 @@ public class JSONParser {
                         bid.setUserId(jsonBid.getInt("userId"));
                         bid.setAccepted(jsonBid.getBoolean("isAccepted"));
                         bid.setDate(jsonBid.getString("date"));
+                        bid.setJobId(jsonBid.getInt("jobId"));
+
+                        data.add(bid);
                     }
-                }
+                    break;
+
             }
         } catch (Exception e) {
             e.printStackTrace();
