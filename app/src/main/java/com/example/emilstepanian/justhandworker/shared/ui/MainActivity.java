@@ -32,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        //Delete these two lines and un-comment code beneath to get login page.
+      //  Intent i = new Intent(this, JobTakerMainActivity.class);
+       // startActivity(i);
+
+
+        //
+
         loginBtn = (Button) findViewById(R.id.btn_login);
         signupLink = (TextView) findViewById(R.id.link_signup);
         usernameInput = (EditText) findViewById(R.id.input_username);
@@ -53,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //
 
 
 
@@ -92,11 +101,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void onLoginSucess(User user) {
 
+        Bundle userInfo = new Bundle();
+        userInfo.putString("firstName", user.getFirstName());
+        userInfo.putString("lastName", user.getLastName());
+        userInfo.putString("password", user.getPassword());
+        userInfo.putString("username", user.getUsername());
+        userInfo.putInt("id", user.getId());
+        userInfo.putInt("professionId", user.getProfessionId());
+
+
         if (user.getProfessionId() != 0) {
+
             Intent i = new Intent(this, JobTakerMainActivity.class);
+
+            i.putExtras(userInfo);
+
             startActivity(i);
+
+
         } else {
             Intent i = new Intent(this, JobOwnerMainActivity.class);
+
+            i.putExtras(userInfo);
             startActivity(i);
         }
 

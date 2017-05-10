@@ -9,6 +9,18 @@ public class User {
     int id, professionId;
     String firstName, lastName, username, password;
 
+    public User(int id, int professionId, String firstName, String lastName, String username, String password) {
+        this.id = id;
+        this.professionId = professionId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
     public int getId() {
         return id;
     }

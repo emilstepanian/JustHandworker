@@ -1,4 +1,4 @@
-package com.example.emilstepanian.justhandworker.jobtaker.ui;
+package com.example.emilstepanian.justhandworker.jobowner.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,14 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.shared.model.User;
 import com.example.emilstepanian.justhandworker.shared.ui.ProfilePageFragment;
 
-public class ProfileContainerFragment extends Fragment {
-    public ProfileContainerFragment() {
+public class JobOwnerProfileContainerFragment extends Fragment {
+
+    Fragment profilePageFragment;
+
+    public Fragment getProfilePageFragment() {
+        return profilePageFragment;
     }
+
+    public JobOwnerProfileContainerFragment() {
+    }
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView =  inflater.inflate(R.layout.fragment_jobtaker_profile_container, container, false);
+        View rootView =  inflater.inflate(R.layout.fragment_jobowner_profile_container, container, false);
 
         Fragment profilePageFragment = new ProfilePageFragment();
 
@@ -27,7 +38,7 @@ public class ProfileContainerFragment extends Fragment {
 
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.jobtakerProfileContainer, profilePageFragment);
+        transaction.replace(R.id.jobownerProfileContainer, profilePageFragment);
         transaction.commit();
 
         return rootView;    }

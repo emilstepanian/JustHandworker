@@ -12,13 +12,20 @@ import android.view.MenuItem;
 import android.view.Window;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.shared.model.User;
 
 public class JobTakerMainActivity extends AppCompatActivity {
+
+    private User currentUser;
 
     private Fragment fragment, homeFragment, messagesFragment, profileFragment;
     Bundle bundle;
     private FragmentManager fragmentManager;
     private BottomNavigationView navigation;
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -28,7 +35,10 @@ public class JobTakerMainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fragment = homeFragment;
+                    if(fragment != homeFragment) {
+                        fragment = homeFragment;
+                    }
+
                     break;
 
                 case R.id.navigation_messages:
@@ -43,7 +53,11 @@ public class JobTakerMainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navigation_profile:
-                    fragment = profileFragment;
+
+                    if(fragment != profileFragment){
+                        fragment = profileFragment;
+                    }
+
                     break;
             }
 
@@ -57,6 +71,19 @@ public class JobTakerMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Prøvede at fjerne actionbar fra activity, virkede ikke rigtig
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //this.getActionBar().hide();
+
+        //Nedenstående giver bare følgende: This activity already has an action bar supplied by the window decore. Do not request wi........
+        //ActionBar actionbar = getSupportActionBar();
+        //actionbar.hide();
+
+        Bundle userInfo = getIntent().getExtras();
+
+        currentUser = new User(userInfo.getInt("id"), userInfo.getInt("professionId"), userInfo.getString("firstName"), userInfo.getString("lastName"), userInfo.getString("username"), userInfo.getString(("password")));
+
+
         setContentView(R.layout.activity_jobtaker_main);
 
         homeFragment = new HomeContainerFragment();
