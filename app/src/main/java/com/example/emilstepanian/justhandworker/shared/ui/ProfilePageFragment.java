@@ -62,6 +62,7 @@ public class ProfilePageFragment extends Fragment {
         if (currentUser.getProfessionId() == 0) {
             professionField.setVisibility(View.INVISIBLE);
             professionField.setHeight(0);
+            professionIdLayout.setVisibility(View.INVISIBLE);
             ratingBar.setVisibility(View.INVISIBLE);
 
         } else {

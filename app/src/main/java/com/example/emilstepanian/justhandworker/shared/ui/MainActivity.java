@@ -16,6 +16,8 @@ import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.model.User;
 import com.example.emilstepanian.justhandworker.jobtaker.ui.JobTakerMainActivity;
 
+import org.json.JSONObject;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +33,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try {
+
+           // if(!JSONParser.getJSONfile(getApplicationContext()).exists()) {
+                JSONParser.copyAssets(getApplicationContext());
+                JSONParser.parseDatabase(getApplicationContext());
+            //}
+
+
+
+        } catch(Exception e){
+
+            e.printStackTrace();
+
+        }
 
         //Delete these two lines and un-comment code beneath to get login page.
       //  Intent i = new Intent(this, JobTakerMainActivity.class);

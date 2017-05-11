@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -133,7 +134,8 @@ public class JobPageActivity extends AppCompatActivity {
                         left.setText(requiredInfo.getTitle());
 
 
-                        TextView requiredInfoValueField = (TextView) view.findViewById(R.id.requiredInfoValue_field);
+                        EditText requiredInfoValueField = (EditText) view.findViewById(R.id.requiredInfoValue_field);
+                        requiredInfoValueField.setEnabled(false);
 
 
                         for (RequiredInfoValue value : requiredInfoValues) {

@@ -1,8 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".jobtaker.ui.HomeContainerFragment"
+    android:id="@+id/coordinator">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frame"
+    >
+    <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/jobownerHomeContainer"
-    tools:context=".jobtaker.ui.HomeContainerFragment">
-
+    >
 </FrameLayout>
+</LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/jobowner_home_container_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_send_black_24dp"
+        android:tint="#FFFFFF"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="24dp"
+        app:layout_anchor="@id/frame"
+
+        app:layout_anchorGravity="bottom|right|end" />
+
+</android.support.design.widget.CoordinatorLayout>

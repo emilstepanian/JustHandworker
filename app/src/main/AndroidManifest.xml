@@ -32,7 +32,9 @@
             android:name=".jobowner.ui.JobOwnerMainActivity"
             android:label="@string/title_activity_job_owner_main" />
         <activity android:name=".shared.ui.JobPageActivity" />
-        <activity android:name=".shared.ui.ChatActivity"></activity>
+        <activity android:name=".shared.ui.ChatActivity" />
+        <activity android:name=".jobowner.ui.CreateJobActivity"
+            android:label="Opret en ny opgave"></activity>
     </application>
 
 </manifest>
