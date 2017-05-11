@@ -2,6 +2,7 @@ package com.example.emilstepanian.justhandworker.shared.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +63,8 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
         for(Job job : jobsList){
             if(bidItem.getJobId() == job.getId()){
                 bidHolder.title.setText(job.getTitle());
-                bidHolder.image.setImageResource(job.getMainImageResourceId());
+                //bidHolder.image.setImageResource(job.getMainImageResourceId());
+                bidHolder.image.setImageResource(holder.container.getResources().getIdentifier(job.getMainImageTitle(), "drawable", holder.container.getContext().getPackageName()));
                 bidHolder.location.setText(job.getLocation());
             }
         }
@@ -72,6 +74,10 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(bidHolder.container.getContext(), ChatActivity.class);
+                int bidJobId = bidItem.getJobId();
+
+                //Jobid needed so that we know which job to show, when the 'see job' is pressed in ChatView
+                i.putExtra("bidJobId", bidJobId);
                 bidHolder.container.getContext().startActivity(i);
             }
         });
