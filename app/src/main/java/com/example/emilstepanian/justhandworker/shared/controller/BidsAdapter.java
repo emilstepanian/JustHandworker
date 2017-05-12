@@ -88,6 +88,9 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
                 //Jobid needed so that we know which job to show, when the 'see job' is pressed in ChatView
                 i.putExtra("bidJobId", bidJobId);
+
+                //tilføjer at der også bliver sendt et bidId --> "default er sat til 999. Det er bare så det virker...
+                i.putExtra("bidId", 999);
                 bidHolder.container.getContext().startActivity(i);
             }
         });

@@ -15,13 +15,11 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
-            android:src="@drawable/ic_account_circle_white_24dp"
-            android:tint="@color/colorPrimaryDark" />
+            android:src="@drawable/launchlogo" />
 
-        <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +35,6 @@
                 android:textColorHint="@color/colorPrimary" />
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Password Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,13 +54,13 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Login"/>
+            android:text="Log ind"/>
 
         <TextView android:id="@+id/link_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="No account yet? Create one"
+            android:text="Har du ikke en bruger? Opret en her"
             android:gravity="center"
             android:textSize="16dip"/>
 

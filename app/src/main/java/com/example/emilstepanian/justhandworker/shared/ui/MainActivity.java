@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         try {
 
-            if(!JSONParser.getJSONfile(getApplicationContext()).exists()) {
+           if(!JSONParser.getJSONfile(getApplicationContext()).exists()) {
                 JSONParser.copyAssets(getApplicationContext());
                 JSONParser.parseDatabase(getApplicationContext());
-          }
+         }
 
 
 
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
        // startActivity(i);
 
 
-        //
 
         loginBtn = (Button) findViewById(R.id.btn_login);
         signupLink = (TextView) findViewById(R.id.link_signup);
@@ -129,6 +128,12 @@ public class MainActivity extends AppCompatActivity {
         if (user.getProfessionId() != 0) {
 
             Intent i = new Intent(this, JobTakerMainActivity.class);
+            /*
+            bruges til at rykke en aktivitet øverst i stack - så når der trykkes tilbage fra næste aktivitet, så bliver der lukket ned
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+*/
 
             i.putExtras(userInfo);
 
@@ -137,6 +142,12 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             Intent i = new Intent(this, JobOwnerMainActivity.class);
+             /*
+            bruges til at rykke en aktivitet øverst i stack - så når der trykkes tilbage fra næste aktivitet, så bliver der lukket ned
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+*/
 
             i.putExtras(userInfo);
             startActivity(i);

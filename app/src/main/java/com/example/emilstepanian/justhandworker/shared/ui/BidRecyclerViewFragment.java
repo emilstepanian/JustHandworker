@@ -44,7 +44,7 @@ public class BidRecyclerViewFragment extends Fragment {
 
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.bids_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getParentFragment().getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         //Tilføjet for kun at vise håndværkerens egne bud
@@ -81,7 +81,7 @@ public class BidRecyclerViewFragment extends Fragment {
                 break;
         }
 
-        bidsAdapter = new BidsAdapter(filteredBidsList, getParentFragment().getActivity());
+        bidsAdapter = new BidsAdapter(filteredBidsList, getActivity());
         recyclerView.setAdapter(bidsAdapter);
 
         return rootView;

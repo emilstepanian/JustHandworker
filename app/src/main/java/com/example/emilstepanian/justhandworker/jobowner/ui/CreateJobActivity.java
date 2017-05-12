@@ -22,17 +22,13 @@ import com.example.emilstepanian.justhandworker.shared.model.Category;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
 import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
 import com.example.emilstepanian.justhandworker.shared.model.RequiredInfoValue;
-import com.example.emilstepanian.justhandworker.shared.model.User;
-import com.example.emilstepanian.justhandworker.shared.ui.MainActivity;
 
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class CreateJobActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -160,7 +156,7 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
                                 riValue.put("jobId", jobId);
                                 riValue.put("value", ((EditText) child.getChildAt(1)).getText().toString());
 
-                                JSONParser.updateDatabase(getApplicationContext(), riValue, "requiredInfoValue");
+                                JSONParser.insertIntoDatabase(getApplicationContext(), riValue, "requiredInfoValue");
 
                             }
 
@@ -168,7 +164,7 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
 
 
-                            JSONParser.updateDatabase(getApplicationContext(), newJob, "job");
+                            JSONParser.insertIntoDatabase(getApplicationContext(), newJob, "job");
 
                        //     progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Opgave oprettet", Toast.LENGTH_LONG).show();

@@ -2,6 +2,7 @@ package com.example.emilstepanian.justhandworker.jobowner.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.jobtaker.ui.*;
@@ -20,17 +22,22 @@ import com.example.emilstepanian.justhandworker.shared.model.User;
 
 public class JobOwnerMainActivity extends AppCompatActivity {
 
-    private User currentUser;
+
+
+    private static User currentUser;
 
 
 
     private Fragment fragment, homeFragment, profileFragment;
     private FragmentManager fragmentManager;
 
-    public User getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
     }
 
+    public static void setCurrentUser(User currentUser) {
+        JobOwnerMainActivity.currentUser = currentUser;
+    }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -98,5 +105,29 @@ public class JobOwnerMainActivity extends AppCompatActivity {
         transaction.replace(R.id.jobowner_main_container, fragment).commit();
 
     }
+
+
+    private Boolean exit = false;
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Tryk igen for at logge ud",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    currentUser = null;
+                    exit = false;
+                }
+            }, 3 * 1000);
+
+        }
+
+    }
+
 
 }

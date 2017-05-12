@@ -143,7 +143,7 @@ public class JSONParser {
 
                         image.setId(jsonImage.getInt("id"));
                         image.setImageTitle(jsonImage.getString("imageTitle"));
-                        image.setJobId(jsonImage.getInt("id"));
+                        image.setJobId(jsonImage.getInt("jobId"));
 
                         data.add(image);
                     }
@@ -407,7 +407,7 @@ public class JSONParser {
         return arrayMap;
     }
 
-    public static void updateDatabase(Context context, JSONObject newObject, String table){
+    public static void insertIntoDatabase(Context context, JSONObject newObject, String table){
 
         try {
             Map<String, JSONArray> arrayMap = getDatabase(context);
@@ -440,6 +440,48 @@ public class JSONParser {
 
         }
     }
+
+    public static void updateBidInDatabase(Context context, JSONObject bidAcceptedUpdate, String table){
+
+        try {
+            Map<String, JSONArray> arrayMap = getDatabase(context);
+            OutputStream fileOutputStream = new FileOutputStream(getJSONfile(context));
+
+            for(int i = 0; i < arrayMap.get(table).length(); i++){
+
+                if(bidAcceptedUpdate.getInt("id") == arrayMap.get(table).getJSONObject(i).getInt("id")){
+                    arrayMap.get(table).getJSONObject(i).put("isAccepted", "true");
+                }
+
+            }
+
+            JsonWriter writer = new JsonWriter(new OutputStreamWriter(fileOutputStream, "UTF-8"));
+            writer.setIndent("  ");
+
+            writer.beginObject();
+
+            writeJsonArray(writer, arrayMap.get("job"), "job");
+            writeJsonArray(writer, arrayMap.get("user"), "user");
+            writeJsonArray(writer, arrayMap.get("profession"), "profession");
+            writeJsonArray(writer, arrayMap.get("image"), "image");
+            writeJsonArray(writer, arrayMap.get("category"), "category");
+            writeJsonArray(writer, arrayMap.get("requiredInfoValue"), "requiredInfoValue");
+            writeJsonArray(writer, arrayMap.get("requiredInfo"), "requiredInfo");
+            writeJsonArray(writer, arrayMap.get("message"), "message");
+            writeJsonArray(writer, arrayMap.get("review"), "review");
+            writeJsonArray(writer, arrayMap.get("bid"), "bid");
+
+            writer.endObject();
+
+            writer.close();
+
+        } catch (Exception e){
+
+            e.printStackTrace();
+
+        }
+    }
+
 
     private static void writeJsonArray(JsonWriter writer, JSONArray array, String table) throws Exception {
         writer.name(table).beginArray();

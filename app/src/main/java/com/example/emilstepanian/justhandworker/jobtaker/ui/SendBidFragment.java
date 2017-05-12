@@ -2,26 +2,18 @@ package com.example.emilstepanian.justhandworker.jobtaker.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.model.Bid;
-import com.example.emilstepanian.justhandworker.shared.model.Job;
-import com.example.emilstepanian.justhandworker.shared.model.User;
 
 import org.json.JSONObject;
 
@@ -58,7 +50,7 @@ public class SendBidFragment extends DialogFragment {
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
                     Date resultdate = new Date(yourmilliseconds);
 
-                    jsonBid.put("date", resultdate);
+                    jsonBid.put("date", sdf.format(resultdate).toString());
 
                     List<Bid> bidList = JSONParser.getListData(getContext(), "bid");
                     int bidId = 0;
@@ -71,27 +63,25 @@ public class SendBidFragment extends DialogFragment {
 
                     jsonBid.put("id", bidId);
 
+                    jsonBid.put("userId", JobTakerMainActivity.getCurrentUser().getId());
+
+                    Bundle jobInfo = getActivity().getIntent().getExtras();
+
+                    jsonBid.put("jobId", jobInfo.getInt("id"));
+
+                    JSONParser.insertIntoDatabase(getContext(), jsonBid, "bid");
 
 
-                    //Gået i stå her. Kan ikke finde frem til parent activiteten - jobtakermain. Skal have current users Id, som bliver loadet i den, men problemet er, at vi kommer til denne side gennem jobpageactivity
-                    //Nedenstående virker ikke
-                    Bundle currentUserInfo = getActivity().getParentActivityIntent().getExtras();
-                    jsonBid.put("userId", currentUserInfo.getInt("id"));
+                    Toast.makeText(getContext(), "Bud oprettet",
+                            Toast.LENGTH_LONG).show();
+                    getActivity().finish();
 
-                    System.out.println(currentUserInfo.getString("firstName"));
+
                 } catch (Exception e){
 
                 }
 
-                        /*
-                              "id": "1",
-      "jobId": "1",
-      "price": "650",
-      "userId": "4",
-      "isAccepted": "false",
-      "date": "28/02/2017"
 
-                         */
             }
         });
 

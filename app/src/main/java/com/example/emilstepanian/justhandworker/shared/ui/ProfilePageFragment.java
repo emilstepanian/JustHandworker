@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.jobowner.ui.CreateJobActivity;
+import com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerHomeContainerFragment;
 import com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerMainActivity;
 import com.example.emilstepanian.justhandworker.jobtaker.ui.JobTakerMainActivity;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
@@ -59,6 +60,11 @@ FloatingActionButton logoutBtn;
                         new Runnable() {
                             @Override
                             public void run() {
+
+                                //Reset currentUsers
+                                User user = null;
+                                JobOwnerMainActivity.setCurrentUser(user);
+                                JobTakerMainActivity.setCurrentUser(user);
                                 progressDialog.dismiss();
                                 getActivity().finish();
                             }
