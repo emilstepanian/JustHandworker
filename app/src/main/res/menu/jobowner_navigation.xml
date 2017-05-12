@@ -5,6 +5,10 @@
         android:id="@+id/jobowner_navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
+    <item
+        android:id="@+id/jobowner_navigation_add_job"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Tilføj" />
 
     <item
         android:id="@+id/jobowner_navigation_profile"

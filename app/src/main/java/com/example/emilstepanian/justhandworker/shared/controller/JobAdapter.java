@@ -47,32 +47,40 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobHolder>{
     @Override
     public void onBindViewHolder(JobHolder holder, int position) {
         final JobHolder finalHolder = holder;
-            final Job jobItem = listData.get(position);
-        finalHolder.title.setText(jobItem.getTitle());
-        finalHolder.description.setText(jobItem.getDescription());
-        finalHolder.location.setText(jobItem.getLocation());
-        finalHolder.date.setText(jobItem.getDate());
-        finalHolder.image.setImageResource(holder.container.getResources().getIdentifier(jobItem.getMainImageTitle(),"drawable",holder.container.getContext().getPackageName()));
+        final int pos = position;
 
-        finalHolder.container.setOnClickListener(new View.OnClickListener(){
+        new android.os.Handler().post(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        final Job jobItem = listData.get(pos);
+                        finalHolder.title.setText(jobItem.getTitle());
+                        finalHolder.description.setText(jobItem.getDescription());
+                        finalHolder.location.setText(jobItem.getLocation());
+                        finalHolder.date.setText(jobItem.getDate());
+                        finalHolder.image.setImageResource(finalHolder.container.getResources().getIdentifier(jobItem.getMainImageTitle(), "drawable", finalHolder.container.getContext().getPackageName()));
 
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(finalHolder.container.getContext(), JobPageActivity.class);
-                i.putExtra("id", jobItem.getId());
-                i.putExtra("title", jobItem.getTitle());
-                i.putExtra("description", jobItem.getDescription());
-                i.putExtra("location", jobItem.getLocation());
-                i.putExtra("date", jobItem.getDate());
-                i.putExtra("imageTitle", jobItem.getMainImageTitle());
-                i.putExtra("imageResourceId", jobItem.getMainImageResourceId());
-                i.putExtra("categoryId", jobItem.getCategoryId());
-                i.putExtra("userId", jobItem.getUserId());
+                        finalHolder.container.setOnClickListener(new View.OnClickListener() {
 
-                finalHolder.container.getContext().startActivity(i);
-            }
+                            @Override
+                            public void onClick(View view) {
+                                Intent i = new Intent(finalHolder.container.getContext(), JobPageActivity.class);
+                                i.putExtra("id", jobItem.getId());
+                                i.putExtra("title", jobItem.getTitle());
+                                i.putExtra("description", jobItem.getDescription());
+                                i.putExtra("location", jobItem.getLocation());
+                                i.putExtra("date", jobItem.getDate());
+                                i.putExtra("imageTitle", jobItem.getMainImageTitle());
+                                i.putExtra("imageResourceId", jobItem.getMainImageResourceId());
+                                i.putExtra("categoryId", jobItem.getCategoryId());
+                                i.putExtra("userId", jobItem.getUserId());
 
-        });
+                                finalHolder.container.getContext().startActivity(i);
+                            }
+
+                        });
+                    }
+                });
 
     }
 

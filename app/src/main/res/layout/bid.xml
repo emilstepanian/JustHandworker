@@ -50,6 +50,31 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:tint="@color/colorPrimary"
+                        card_view:srcCompat="@drawable/ic_account_circle_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/bid_jobOwner"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="Huh Derpalerp"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:tint="@color/colorPrimary"
                         card_view:srcCompat="@drawable/ic_place_black_24dp" />
 
                     <TextView
@@ -97,21 +122,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="bottom"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:tint="@color/colorPrimary"
-                        card_view:srcCompat="@drawable/ic_account_circle_white_24dp"
-                        />
-
-
-                    <TextView
-                        android:id="@+id/bid_jobOwner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Jakob Derpalerp"/>
 
                     <TextView
                         android:id="@+id/bid_date"
@@ -133,6 +146,8 @@
                 android:id="@+id/bid_image"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+
                 android:src="@drawable/wc" />
 
         </LinearLayout>

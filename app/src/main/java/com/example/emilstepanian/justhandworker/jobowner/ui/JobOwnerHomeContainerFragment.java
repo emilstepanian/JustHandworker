@@ -14,33 +14,23 @@ import com.example.emilstepanian.justhandworker.shared.ui.JobRecyclerViewFragmen
 
 public class JobOwnerHomeContainerFragment extends Fragment {
 
+    Fragment jobRecyclerViewFragment;
 
     public JobOwnerHomeContainerFragment() {
+        this.jobRecyclerViewFragment = new JobRecyclerViewFragment();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_jobowner_home_container, container, false);
 
-        Fragment jobRecyclerViewFragment = new JobRecyclerViewFragment();
 
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.replace(R.id.jobownerHomeContainer, jobRecyclerViewFragment);
-       // transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-       // transaction.addToBackStack(null); 
+        // transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        // transaction.addToBackStack(null);
         transaction.commit();
 
-        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.jobowner_home_container_fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), CreateJobActivity.class);
-                i.putExtras(getActivity().getIntent());
-                startActivity(i);
-
-            }
-        });
 
 
 

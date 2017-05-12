@@ -1,8 +1,11 @@
 package com.example.emilstepanian.justhandworker.jobowner.ui;
 
+import android.app.ProgressDialog;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +23,7 @@ import com.example.emilstepanian.justhandworker.shared.model.Job;
 import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
 import com.example.emilstepanian.justhandworker.shared.model.RequiredInfoValue;
 import com.example.emilstepanian.justhandworker.shared.model.User;
+import com.example.emilstepanian.justhandworker.shared.ui.MainActivity;
 
 import org.json.JSONObject;
 
@@ -45,6 +49,11 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_job);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         currentUserInfo = getIntent().getExtras();
 
@@ -73,8 +82,14 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
     }
 
     private void createJob() {
+        final ProgressDialog progressDialog = new ProgressDialog(CreateJobActivity.this);
 
-        new android.os.Handler().post(
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Opretter opgave...");
+        progressDialog.show();
+
+
+        new android.os.Handler().postDelayed(
                 new Runnable() {
                     @Override
                     public void run() {
@@ -100,7 +115,6 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
                             long yourmilliseconds = System.currentTimeMillis();
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
                             Date resultdate = new Date(yourmilliseconds);
-                            System.out.println(sdf.format(resultdate));
 
 
                             newJob.put("date", sdf.format(resultdate).toString());
@@ -111,7 +125,7 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
                                     newJob.put("categoryId", category.getId());
                                 }
                             }
-                            newJob.put("mainImageResourceId", "0");
+                            newJob.put("mainImageResourceId", "2");
 
 
 
@@ -156,6 +170,11 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
                             JSONParser.updateDatabase(getApplicationContext(), newJob, "job");
 
+                       //     progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Opgave oprettet", Toast.LENGTH_LONG).show();
+
+                            progressDialog.dismiss();
+                            finish();
 
                         } catch (Exception e) {
 
@@ -163,10 +182,8 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
 
                     }
-                });
-        Toast.makeText(getApplicationContext(), "Opgave oprettet", Toast.LENGTH_LONG).show();
+                }, 2000);
 
-        finish();
 
 
     }
@@ -243,6 +260,17 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
         }
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+
+                finish();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

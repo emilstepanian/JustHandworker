@@ -51,23 +51,33 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
         final BidHolder bidHolder = holder;
         final Bid bidItem = bidList.get(position);
-        bidHolder.price.setText(Double.toString(bidItem.getPrice()));
-        bidHolder.date.setText(bidItem.getDate());
 
-        for(User user : userList){
-            if(user.getId() == bidItem.getUserId()){
-                bidHolder.userId.setText(user.getFirstName() + " " + user.getLastName());
-            }
-        }
+        new android.os.Handler().post(
+                new Runnable() {
+                    @Override
+                    public void run() {
 
-        for(Job job : jobsList){
-            if(bidItem.getJobId() == job.getId()){
-                bidHolder.title.setText(job.getTitle());
-                //bidHolder.image.setImageResource(job.getMainImageResourceId());
-                bidHolder.image.setImageResource(holder.container.getResources().getIdentifier(job.getMainImageTitle(), "drawable", holder.container.getContext().getPackageName()));
-                bidHolder.location.setText(job.getLocation());
-            }
-        }
+
+                        bidHolder.price.setText(Double.toString(bidItem.getPrice()) + " kr.");
+                        bidHolder.date.setText(bidItem.getDate());
+
+                        for (User user : userList) {
+                            if (user.getId() == bidItem.getUserId()) {
+                                bidHolder.userId.setText(user.getFirstName() + " " + user.getLastName());
+                            }
+                        }
+
+                        for (Job job : jobsList) {
+                            if (bidItem.getJobId() == job.getId()) {
+                                bidHolder.title.setText(job.getTitle());
+                                //bidHolder.image.setImageResource(job.getMainImageResourceId());
+                                bidHolder.image.setImageResource(bidHolder.container.getResources().getIdentifier(job.getMainImageTitle(), "drawable", bidHolder.container.getContext().getPackageName()));
+                                bidHolder.location.setText(job.getLocation());
+                            }
+                        }
+                    }
+                });
+
 
 
         bidHolder.container.setOnClickListener(new View.OnClickListener(){

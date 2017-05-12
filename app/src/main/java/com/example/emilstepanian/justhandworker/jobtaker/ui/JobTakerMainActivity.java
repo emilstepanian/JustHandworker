@@ -72,13 +72,14 @@ public class JobTakerMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Change title from 'JobtakerMainActivity'
-        getSupportActionBar().setTitle("JustHåndværker");
 
         Bundle userInfo = getIntent().getExtras();
 
         currentUser = new User(userInfo.getInt("id"), userInfo.getInt("professionId"), userInfo.getString("firstName"), userInfo.getString("lastName"), userInfo.getString("username"), userInfo.getString(("password")));
 
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setTitle("Velkommen " + currentUser.getFirstName());
 
         setContentView(R.layout.activity_jobtaker_main);
 

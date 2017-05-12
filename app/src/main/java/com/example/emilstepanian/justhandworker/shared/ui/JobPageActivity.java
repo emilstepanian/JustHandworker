@@ -3,6 +3,7 @@ package com.example.emilstepanian.justhandworker.shared.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.jobtaker.ui.JobTakerMainActivity;
+import com.example.emilstepanian.justhandworker.jobtaker.ui.SendBidFragment;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.controller.SlideAdapter;
 import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
@@ -40,6 +42,7 @@ public class JobPageActivity extends AppCompatActivity {
     private int currentPage = 0;
     private final Integer[] imageInts = {R.drawable.balcony, R.drawable.wc, R.drawable.sink};
     private ArrayList<Integer> imagesIntArray = new ArrayList<>();
+    private FloatingActionButton sendBidBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,16 @@ public class JobPageActivity extends AppCompatActivity {
         loadJob(jobData);
 
         initImageSlider();
+
+        sendBidBtn = (FloatingActionButton) findViewById(R.id.send_bid_button);
+
+        sendBidBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendBidFragment sendBidFragment = new SendBidFragment();
+                sendBidFragment.show(getSupportFragmentManager(), "hej");
+            }
+        });
     }
 
     @Override
@@ -81,7 +94,6 @@ public class JobPageActivity extends AppCompatActivity {
             public void run() {
                 try {
                     JSONObject jsonUser = JSONParser.getJSONObjectById(getApplicationContext(), "user", jobData.getInt("userId"));
-                    System.out.println("USER USER USER: " + jobData.getInt("userId"));
                     fullName.setText(jsonUser.getString("firstName") + " " + jsonUser.getString("lastName"));
 
                 } catch (Exception e){
@@ -190,7 +202,7 @@ public class JobPageActivity extends AppCompatActivity {
                 public void run() {
                     handler.post(update);
                 }
-            }, 2500, 2500);
+            }, 4000, 4000);
 
 
 

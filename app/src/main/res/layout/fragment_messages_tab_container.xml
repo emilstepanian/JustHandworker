@@ -15,6 +15,8 @@
         android:id="@+id/tabs_pager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/tabs_toolbar" />
+        android:layout_below="@+id/tabs_toolbar" >
+
+    </android.support.v4.view.ViewPager>
 </LinearLayout>
 

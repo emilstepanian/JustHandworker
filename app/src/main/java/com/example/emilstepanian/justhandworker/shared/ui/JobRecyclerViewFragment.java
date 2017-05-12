@@ -12,7 +12,9 @@ import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.controller.JobAdapter;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
+import com.example.emilstepanian.justhandworker.shared.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,12 +34,32 @@ public class JobRecyclerViewFragment extends Fragment{
             View rootView = inflater.inflate(R.layout.job_recycler_view, container, false);
             recyclerView = (RecyclerView) rootView.findViewById(R.id.rec_list);
 
-            recyclerView.setLayoutManager(new LinearLayoutManager(getParentFragment().getActivity()));
+            Bundle userInfo = this.getActivity().getIntent().getExtras();
+            User currentUser = new User(userInfo.getInt("id"), userInfo.getInt("professionId"), userInfo.getString("firstName"), userInfo.getString("lastName"), userInfo.getString("username"), userInfo.getString(("password")));
 
             List<Job> jobList = JSONParser.getListData(getParentFragment().getContext(), "job");
+            ArrayList<Job> filteredJobList = new ArrayList<>();
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(getParentFragment().getActivity()));
 
 
-            jobAdapter = new JobAdapter(jobList, getParentFragment().getActivity());
+            if(currentUser.getProfessionId() == 0) {
+                for(int i = 0; i < jobList.size(); i++){
+                    Job job = jobList.get(i);
+                    if(currentUser.getId() == job.getUserId()){
+                        filteredJobList.add(jobList.get(i));
+                    }
+                }
+
+                jobAdapter = new JobAdapter(filteredJobList, getParentFragment().getActivity());
+
+            } else {
+                jobAdapter = new JobAdapter(jobList, getParentFragment().getActivity());
+
+            }
+
+
+
 
             recyclerView.setAdapter(jobAdapter);
 

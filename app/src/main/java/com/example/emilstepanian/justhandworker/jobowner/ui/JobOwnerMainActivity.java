@@ -1,13 +1,16 @@
 package com.example.emilstepanian.justhandworker.jobowner.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
@@ -40,6 +43,12 @@ public class JobOwnerMainActivity extends AppCompatActivity {
                     }
 
                     break;
+                case R.id.jobowner_navigation_add_job:
+                    Intent i = new Intent(getApplicationContext(), CreateJobActivity.class);
+                    i.putExtras(getIntent());
+                    fragment = homeFragment;
+                    startActivity(i);
+                    break;
 
 
                 case R.id.jobowner_navigation_profile:
@@ -65,6 +74,10 @@ public class JobOwnerMainActivity extends AppCompatActivity {
         Bundle userInfo = getIntent().getExtras();
 
         currentUser = new User(userInfo.getInt("id"), userInfo.getInt("professionId"), userInfo.getString("firstName"), userInfo.getString("lastName"), userInfo.getString("username"), userInfo.getString(("password")));
+
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setTitle("Velkommen " + currentUser.getFirstName());
 
 
 

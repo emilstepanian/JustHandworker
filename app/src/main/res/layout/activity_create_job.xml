@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Titel" />
+                android:inputType="text|textEmailAddress"
+                android:hint="Titel" />
 
         </LinearLayout>
 
@@ -114,9 +114,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="text|textEmailAddress"
                 android:maxLines="5"
-                android:text="Beskrivelse" />
+                android:hint="Beskrivelse" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,8 +131,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Lokation" />
+                android:inputType="text|textEmailAddress"
+                android:hint="Lokation" />
 
         </LinearLayout>
 

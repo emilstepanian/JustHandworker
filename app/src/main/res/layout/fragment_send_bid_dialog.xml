@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:orientation="vertical"
+    android:paddingEnd="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="com.example.emilstepanian.justhandworker.jobtaker.ui.SendBidFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <EditText
+        android:id="@+id/new_bid_price"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Indtast en pris"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/new_bid_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Skriv en kommentar"
+
+        android:textSize="14sp" />
+
+</LinearLayout>

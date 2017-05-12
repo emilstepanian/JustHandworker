@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         try {
 
-           // if(!JSONParser.getJSONfile(getApplicationContext()).exists()) {
+            if(!JSONParser.getJSONfile(getApplicationContext()).exists()) {
                 JSONParser.copyAssets(getApplicationContext());
                 JSONParser.parseDatabase(getApplicationContext());
-            //}
+          }
 
 
 

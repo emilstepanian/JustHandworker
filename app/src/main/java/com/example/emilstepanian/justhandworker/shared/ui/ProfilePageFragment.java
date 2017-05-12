@@ -1,8 +1,10 @@
 package com.example.emilstepanian.justhandworker.shared.ui;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.emilstepanian.justhandworker.R;
+import com.example.emilstepanian.justhandworker.jobowner.ui.CreateJobActivity;
 import com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerMainActivity;
 import com.example.emilstepanian.justhandworker.jobtaker.ui.JobTakerMainActivity;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
@@ -30,7 +33,7 @@ public class ProfilePageFragment extends Fragment {
     TextView nameField, professionField;
     LinearLayout professionIdLayout;
     RatingBar ratingBar;
-
+FloatingActionButton logoutBtn;
 
 
     @Override
@@ -41,6 +44,28 @@ public class ProfilePageFragment extends Fragment {
         nameField = (TextView) fragmentView.findViewById(R.id.profile_page_fullname);
         professionField = (TextView) fragmentView.findViewById(R.id.profile_page_profession);
         professionIdLayout = (LinearLayout) fragmentView.findViewById(R.id.professionIdLayout);
+        logoutBtn = (FloatingActionButton) fragmentView.findViewById(R.id.logoutBtn);
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final ProgressDialog progressDialog = new ProgressDialog(getContext());
+
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Logger ud...");
+                progressDialog.show();
+
+                new android.os.Handler().postDelayed(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                progressDialog.dismiss();
+                                getActivity().finish();
+                            }
+                        }, 1000);
+
+            }
+        });
 
         setUser();
         return fragmentView;
