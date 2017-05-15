@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import it.sephiroth.android.library.tooltip.Tooltip;
 import me.relex.circleindicator.CircleIndicator;
 
 public class JobPageActivity extends AppCompatActivity {
@@ -104,12 +105,17 @@ public class JobPageActivity extends AppCompatActivity {
 
                     }
 
+
+
                     ((ImageView) bidView.findViewById(R.id.bid_image)).setImageResource(getResources().getIdentifier(jobData.getString("imageTitle"), "drawable", getApplicationContext().getPackageName()));
                     contentLayout.addView(bidView);
                     final Bid finalBid = bid;
                     bidView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+
+
+
                             Intent i = new Intent(getApplicationContext(), ChatActivity.class);
                             i.putExtra("bidJobId", jobData.getInt("id"));
                             i.putExtra("bidId", finalBid.getId());
@@ -136,6 +142,8 @@ public class JobPageActivity extends AppCompatActivity {
         sendBidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 SendBidFragment sendBidFragment = new SendBidFragment();
                 sendBidFragment.show(getSupportFragmentManager(), "hej");
             }
@@ -253,6 +261,13 @@ public class JobPageActivity extends AppCompatActivity {
             if(jobId == image.getJobId()) {
                 imagesIntArray.add(getResources().getIdentifier(image.getImageTitle(), "drawable", getApplicationContext().getPackageName()));
             }
+        }
+
+        if(imagesIntArray.size() == 0) {
+            imagesIntArray.add(getResources().getIdentifier("skrivebord1", "drawable", getApplicationContext().getPackageName()));
+            imagesIntArray.add(getResources().getIdentifier("skrivebord2", "drawable", getApplicationContext().getPackageName()));
+            imagesIntArray.add(getResources().getIdentifier("skrivebord3", "drawable", getApplicationContext().getPackageName()));
+
         }
 
 

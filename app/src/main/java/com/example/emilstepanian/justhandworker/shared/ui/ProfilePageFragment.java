@@ -24,6 +24,8 @@ import com.example.emilstepanian.justhandworker.shared.model.User;
 
 import org.json.JSONObject;
 
+import it.sephiroth.android.library.tooltip.Tooltip;
+
 
 public class ProfilePageFragment extends Fragment {
 
@@ -51,6 +53,9 @@ FloatingActionButton logoutBtn;
             @Override
             public void onClick(View v) {
                 final ProgressDialog progressDialog = new ProgressDialog(getContext());
+
+
+
 
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Logger ud...");
