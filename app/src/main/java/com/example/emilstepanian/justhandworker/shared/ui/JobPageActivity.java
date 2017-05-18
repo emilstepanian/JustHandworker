@@ -3,6 +3,7 @@ package com.example.emilstepanian.justhandworker.shared.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
@@ -13,12 +14,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerMainActivity;
@@ -66,11 +69,11 @@ public class JobPageActivity extends AppCompatActivity {
 
 
         if(JobOwnerMainActivity.getCurrentUser() != null){
-            sendBidBtn.setVisibility(View.INVISIBLE);
+        //    sendBidBtn.setVisibility(View.INVISIBLE);
             LinearLayout contentLayout = (LinearLayout) findViewById(R.id.job_page_content_layout);
             LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
 
-
+            sendBidBtn.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_white_24dp));
             //Tilføjer bids en efter en i stedet for at bruge recyclerviewet. Det er for tilpasset til tablayoutet, at det ikke kan bruges,
             //så dette er et hotfix
             List<Bid> bidList = JSONParser.getListData(getApplicationContext(), "bid");
@@ -81,6 +84,8 @@ public class JobPageActivity extends AppCompatActivity {
                     bidView.setBackgroundColor(Color.WHITE);
                     (contentLayout.findViewById(R.id.bids_section)).setVisibility(View.VISIBLE);
                     ((TextView) bidView.findViewById(R.id.bid_title)).setText(jobData.getString("title"));
+                    ((TextView) bidView.findViewById(R.id.bid_title)).setTypeface(null, Typeface.BOLD);
+
                     for(User user : userList){
                         if(user.getId() == bid.getUserId()) {
                             ((TextView) bidView.findViewById(R.id.bid_jobOwner)).setText("Budt af " + user.getFirstName() + " " + user.getLastName());
@@ -121,6 +126,8 @@ public class JobPageActivity extends AppCompatActivity {
                             i.putExtra("bidId", finalBid.getId());
 
                             startActivity(i);
+                            ((TextView) v.findViewById(R.id.bid_title)).setTypeface(null, Typeface.NORMAL);
+
                         }
                     });
 
@@ -158,6 +165,13 @@ public class JobPageActivity extends AppCompatActivity {
             finish();
             default:
                 return super.onOptionsItemSelected(item);
+
+            case R.id.action_settings:
+                Toast.makeText(this, "Rediger opgave.\n",
+                        Toast.LENGTH_SHORT).show();
+
+                return true;
+
         }
     }
 
@@ -277,7 +291,6 @@ public class JobPageActivity extends AppCompatActivity {
             CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
             indicator.setViewPager(mPager);
 
-            //Autostart of viewpager
 
             final Handler handler = new Handler();
             final Runnable update = new Runnable() {
@@ -300,9 +313,18 @@ public class JobPageActivity extends AppCompatActivity {
             }, 3000, 3000);
 
 
-
-
-
-
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if(JobOwnerMainActivity.getCurrentUser() != null){
+            getMenuInflater().inflate(R.menu.settings_menu_button, menu);
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+
 }

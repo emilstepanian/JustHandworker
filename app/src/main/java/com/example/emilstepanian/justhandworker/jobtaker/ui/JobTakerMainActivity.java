@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
@@ -126,6 +127,38 @@ public class JobTakerMainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.settings_menu_button, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+
+                if(fragment == homeFragment){
+                    Toast.makeText(this, "Ret søgekriterier",
+                            Toast.LENGTH_SHORT).show();
+
+                } else if (fragment == messagesFragment) {
+                    Toast.makeText(this, "Ret/Slet",
+                            Toast.LENGTH_SHORT).show();
+
+                } else if(fragment == profileFragment) {
+                    Toast.makeText(this, "Rediger oplysninger",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

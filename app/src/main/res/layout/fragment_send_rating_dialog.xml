@@ -12,12 +12,13 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <EditText
-        android:id="@+id/new_bid_price"
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        style="?android:attr/ratingBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="Indtast en pris [Valgfri]"
-        android:textSize="14sp" />
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1.0" />
 
     <EditText
         android:id="@+id/new_bid_comment"

@@ -18,10 +18,10 @@
     },
     {
       "id": "3",
-      "firstName": "Henrik",
-      "lastName": "DerpaLerp",
-      "username": "h",
-      "password": "h",
+      "firstName": "Claus",
+      "lastName": "Rievers",
+      "username": "c",
+      "password": "c",
       "professionId": "1"
     },
     {
@@ -36,8 +36,8 @@
       "id": "5",
       "firstName": "Carsten",
       "lastName": "Charmetrold",
-      "username": "c",
-      "password": "c",
+      "username": "asd",
+      "password": "asd",
       "professionId": "3"
     },
     {

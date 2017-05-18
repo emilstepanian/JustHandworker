@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ public class JobOwnerMainActivity extends AppCompatActivity {
                 case R.id.jobowner_navigation_home:
                     if(fragment != homeFragment) {
                         fragment = homeFragment;
+
                     }
 
                     break;
@@ -127,6 +129,37 @@ public class JobOwnerMainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.settings_menu_button, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+
+                if(fragment == homeFragment) {
+
+                    Toast.makeText(this, "Slet opgaver\n",
+                            Toast.LENGTH_SHORT).show();
+
+                } else if(fragment == profileFragment) {
+                    Toast.makeText(this, "Rediger oplysninger.\n",
+                            Toast.LENGTH_SHORT).show();
+
+
+                }
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
