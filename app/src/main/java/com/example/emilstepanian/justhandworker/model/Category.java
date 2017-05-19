@@ -17,9 +17,7 @@ public class Category {
         this.id = id;
     }
 
-    public int getProfessionId() {
-        return professionId;
-    }
+
 
     public void setProfessionId(int professionId) {
         this.professionId = professionId;
