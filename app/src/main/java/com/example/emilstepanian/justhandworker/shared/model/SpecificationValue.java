@@ -4,8 +4,8 @@ package com.example.emilstepanian.justhandworker.shared.model;
  * Created by emilstepanian on 06/05/2017.
  */
 
-public class RequiredInfoValue {
-private int id, jobId, requiredInfoId;
+public class SpecificationValue {
+private int id, jobId, specificationId;
     private String value;
 
     public int getId() {
@@ -24,12 +24,12 @@ private int id, jobId, requiredInfoId;
         this.jobId = jobId;
     }
 
-    public int getRequiredInfoId() {
-        return requiredInfoId;
+    public int getSpecificationId() {
+        return specificationId;
     }
 
-    public void setRequiredInfoId(int requiredInfoId) {
-        this.requiredInfoId = requiredInfoId;
+    public void setSpecificationId(int specificationId) {
+        this.specificationId = specificationId;
     }
 
     public String getValue() {

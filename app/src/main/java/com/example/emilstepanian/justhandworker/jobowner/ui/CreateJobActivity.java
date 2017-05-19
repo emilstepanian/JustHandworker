@@ -20,8 +20,8 @@ import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.model.Category;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
-import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
-import com.example.emilstepanian.justhandworker.shared.model.RequiredInfoValue;
+import com.example.emilstepanian.justhandworker.shared.model.Specification;
+import com.example.emilstepanian.justhandworker.shared.model.SpecificationValue;
 
 import org.json.JSONObject;
 
@@ -126,16 +126,16 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
 
 
-                            List<RequiredInfoValue> requiredInfoValueList = JSONParser.getListData(getApplicationContext(), "requiredInfoValue");
+                            List<SpecificationValue> specificationValueList = JSONParser.getListData(getApplicationContext(), "requiredInfoValue");
                             int requiredInfoValueId = 0;
-                            for (RequiredInfoValue requiredInfoValue : requiredInfoValueList){
-                                if(requiredInfoValueId <= requiredInfoValue.getId()){
-                                    requiredInfoValueId = requiredInfoValue.getId();
+                            for (SpecificationValue specificationValue : specificationValueList){
+                                if(requiredInfoValueId <= specificationValue.getId()){
+                                    requiredInfoValueId = specificationValue.getId();
                                     requiredInfoValueId++;
                                 }
                             }
 
-                            List<RequiredInfo> requiredInfoList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
+                            List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
 
 
                             int count = requirementsLayout.getChildCount();
@@ -147,9 +147,9 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
                                 JSONObject riValue = new JSONObject();
                                 riValue.put("id", requiredInfoValueId++);
 
-                                for(RequiredInfo requiredInfo : requiredInfoList) {
-                                    if(requiredInfo.getTitle().equals(((TextView) child.getChildAt(0)).getText().toString())){
-                                        riValue.put("requiredInfoId", requiredInfo.getId());
+                                for(Specification specification : specificationList) {
+                                    if(specification.getTitle().equals(((TextView) child.getChildAt(0)).getText().toString())){
+                                        riValue.put("requiredInfoId", specification.getId());
 
                                     }
                                 }
@@ -215,8 +215,8 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
         String selectedCategoryTitle = (String) parent.getItemAtPosition(position);
         Category selectedCategory = null;
-        List<RequiredInfo> requiredInfoList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
-        List<RequiredInfo> requiredInfoForCategory = new ArrayList<>();
+        List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
+        List<Specification> specificationForCategory = new ArrayList<>();
         LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
 
         requirementsLayout.removeAllViews();
@@ -231,23 +231,23 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
         }
 
 
-        for (RequiredInfo requiredInfo : requiredInfoList) {
+        for (Specification specification : specificationList) {
 
-            if (requiredInfo.getCategoryId() == selectedCategory.getId()) {
+            if (specification.getCategoryId() == selectedCategory.getId()) {
 
-                requiredInfoForCategory.add(requiredInfo);
+                specificationForCategory.add(specification);
 
-                View requiredInfoView = inflater.inflate(R.layout.requiredinfo, requirementsLayout, false);
+                View requiredInfoView = inflater.inflate(R.layout.specification, requirementsLayout, false);
 
-                TextView riTitle = (TextView) requiredInfoView.findViewById(R.id.requiredInfo_field);
+                TextView riTitle = (TextView) requiredInfoView.findViewById(R.id.specification_field);
 
-                TextView riValue = (TextView) requiredInfoView.findViewById(R.id.requiredInfoValue_field);
+                TextView riValue = (TextView) requiredInfoView.findViewById(R.id.specificationValue_field);
 
                 riValue.setText("");
-                riValue.setHint("Indtast " + requiredInfo.getTitle());
+                riValue.setHint("Indtast " + specification.getTitle());
 
 
-                riTitle.setText(requiredInfo.getTitle());
+                riTitle.setText(specification.getTitle());
 
                 requirementsLayout.addView(requiredInfoView);
 

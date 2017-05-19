@@ -6,8 +6,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -25,26 +23,22 @@ import android.widget.Toast;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerMainActivity;
-import com.example.emilstepanian.justhandworker.jobtaker.ui.HomeContainerFragment;
-import com.example.emilstepanian.justhandworker.jobtaker.ui.JobTakerMainActivity;
 import com.example.emilstepanian.justhandworker.jobtaker.ui.SendBidFragment;
 import com.example.emilstepanian.justhandworker.shared.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.shared.controller.SlideAdapter;
 import com.example.emilstepanian.justhandworker.shared.model.Bid;
 import com.example.emilstepanian.justhandworker.shared.model.Image;
-import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
-import com.example.emilstepanian.justhandworker.shared.model.RequiredInfoValue;
+import com.example.emilstepanian.justhandworker.shared.model.Specification;
+import com.example.emilstepanian.justhandworker.shared.model.SpecificationValue;
 import com.example.emilstepanian.justhandworker.shared.model.User;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import it.sephiroth.android.library.tooltip.Tooltip;
 import me.relex.circleindicator.CircleIndicator;
 
 public class JobPageActivity extends AppCompatActivity {
@@ -222,32 +216,32 @@ public class JobPageActivity extends AppCompatActivity {
         final Runnable getRequiredFields = new Runnable() {
             @Override
             public void run() {
-                List<RequiredInfo> requiredInfoList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
-                List<RequiredInfoValue> requiredInfoValues = JSONParser.getListData(getApplicationContext(), "requiredInfoValue" );
+                List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
+                List<SpecificationValue> specificationValues = JSONParser.getListData(getApplicationContext(), "requiredInfoValue" );
 
 
                 LinearLayout requiredInfoLayout = (LinearLayout) findViewById(R.id.requiredInfo_job_page_container);
 
                 LayoutInflater inflater = LayoutInflater.from(context);
 
-                for(RequiredInfo requiredInfo : requiredInfoList) {
+                for(Specification requiredInfo : specificationList) {
 
                     if (categoryId == requiredInfo.getCategoryId()) {
 
-                        View view = inflater.inflate(R.layout.requiredinfo, requiredInfoLayout, false);
+                        View view = inflater.inflate(R.layout.specification, requiredInfoLayout, false);
 
-                        TextView left = (TextView) view.findViewById(R.id.requiredInfo_field);
+                        TextView left = (TextView) view.findViewById(R.id.specification_field);
 
                         left.setText(requiredInfo.getTitle());
 
 
-                        EditText requiredInfoValueField = (EditText) view.findViewById(R.id.requiredInfoValue_field);
+                        EditText requiredInfoValueField = (EditText) view.findViewById(R.id.specificationValue_field);
                         requiredInfoValueField.setEnabled(false);
 
 
-                        for (RequiredInfoValue value : requiredInfoValues) {
+                        for (SpecificationValue value : specificationValues) {
 
-                            if (value.getRequiredInfoId() == requiredInfo.getId()) {
+                            if (value.getSpecificationId() == requiredInfo.getId()) {
                                 requiredInfoValueField.setText(value.getValue());
                             }
                         }

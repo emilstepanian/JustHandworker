@@ -1,20 +1,15 @@
 package com.example.emilstepanian.justhandworker.shared.controller;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import android.util.JsonReader;
 import android.util.JsonWriter;
-import android.util.Log;
 
 import com.example.emilstepanian.justhandworker.R;
 import com.example.emilstepanian.justhandworker.shared.model.Bid;
 import com.example.emilstepanian.justhandworker.shared.model.Category;
 import com.example.emilstepanian.justhandworker.shared.model.Image;
 import com.example.emilstepanian.justhandworker.shared.model.Job;
-import com.example.emilstepanian.justhandworker.shared.model.RequiredInfo;
-import com.example.emilstepanian.justhandworker.shared.model.RequiredInfoValue;
+import com.example.emilstepanian.justhandworker.shared.model.Specification;
+import com.example.emilstepanian.justhandworker.shared.model.SpecificationValue;
 import com.example.emilstepanian.justhandworker.shared.model.User;
 
 import org.json.JSONArray;
@@ -24,15 +19,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -157,13 +149,13 @@ public class JSONParser {
                         JSONObject jsonRequiredInfo = jsonArray.getJSONObject(i);
 
 
-                        RequiredInfo requiredInfo = new RequiredInfo();
+                        Specification specification = new Specification();
 
-                        requiredInfo.setId(jsonRequiredInfo.getInt("id"));
-                        requiredInfo.setCategoryId(jsonRequiredInfo.getInt("categoryId"));
-                        requiredInfo.setTitle(jsonRequiredInfo.getString("title"));
+                        specification.setId(jsonRequiredInfo.getInt("id"));
+                        specification.setCategoryId(jsonRequiredInfo.getInt("categoryId"));
+                        specification.setTitle(jsonRequiredInfo.getString("title"));
 
-                        data.add(requiredInfo);
+                        data.add(specification);
                     }
                     break;
 
@@ -175,13 +167,13 @@ public class JSONParser {
 
                         JSONObject jsonRequiredInfoValue = jsonArray.getJSONObject(i);
 
-                        RequiredInfoValue requiredInfoValue = new RequiredInfoValue();
+                        SpecificationValue specificationValue = new SpecificationValue();
 
-                        requiredInfoValue.setId(jsonRequiredInfoValue.getInt("id"));
-                        requiredInfoValue.setJobId(jsonRequiredInfoValue.getInt("jobId"));
-                        requiredInfoValue.setRequiredInfoId(jsonRequiredInfoValue.getInt("requiredInfoId"));
-                        requiredInfoValue.setValue(jsonRequiredInfoValue.getString("value"));
-                        data.add(requiredInfoValue);
+                        specificationValue.setId(jsonRequiredInfoValue.getInt("id"));
+                        specificationValue.setJobId(jsonRequiredInfoValue.getInt("jobId"));
+                        specificationValue.setSpecificationId(jsonRequiredInfoValue.getInt("requiredInfoId"));
+                        specificationValue.setValue(jsonRequiredInfoValue.getString("value"));
+                        data.add(specificationValue);
                     }
                     break;
 

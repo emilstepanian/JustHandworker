@@ -4,7 +4,7 @@ package com.example.emilstepanian.justhandworker.shared.model;
  * Created by emilstepanian on 06/05/2017.
  */
 
-public class RequiredInfo {
+public class Specification {
 
     int id, categoryId;
     String title;
