@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/profile_page_scrollview"
-    tools:context="com.example.emilstepanian.justhandworker.shared.ui.ProfilePageFragment">
+    tools:context="com.example.emilstepanian.justhandworker.controller.ProfilePageFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

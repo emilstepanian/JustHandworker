@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.emilstepanian.justhandworker.jobowner.ui.JobOwnerMainActivity">
+    tools:context="com.example.emilstepanian.justhandworker.controller.jobowner.JobOwnerMainActivity">
 
     <FrameLayout
         android:id="@+id/jobowner_main_container"

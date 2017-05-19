@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".shared.ui.MainActivity"
+            android:name=".controller.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".jobtaker.ui.JobTakerMainActivity"
+            android:name=".controller.jobtaker.JobTakerMainActivity"
             android:label="@string/title_activity_workman_main"
             android:theme="@style/AppTheme" />
-        <activity android:name=".shared.ui.SignupActivity" />
+        <activity android:name=".controller.SignupActivity" />
         <activity
-            android:name=".jobowner.ui.JobOwnerMainActivity"
+            android:name=".controller.jobowner.JobOwnerMainActivity"
             android:label="@string/title_activity_job_owner_main" />
-        <activity android:name=".shared.ui.JobPageActivity" />
-        <activity android:name=".shared.ui.ChatActivity" />
-        <activity android:name=".jobowner.ui.CreateJobActivity"
+        <activity android:name=".controller.JobPageActivity" />
+        <activity android:name=".controller.ChatActivity" />
+        <activity android:name=".controller.jobowner.CreateJobActivity"
             android:label="Opret en ny opgave"></activity>
     </application>
 

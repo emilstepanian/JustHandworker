@@ -3,5 +3,5 @@
     android:id="@+id/jobtakerMessagesContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jobtaker.ui.MessagesContainerFragment">
+    tools:context=".controller.jobtaker.MessagesContainerFragment">
 </FrameLayout>

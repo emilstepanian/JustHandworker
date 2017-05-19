@@ -7,7 +7,7 @@
     android:paddingEnd="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    tools:context="com.example.emilstepanian.justhandworker.jobtaker.ui.SendBidFragment">
+    tools:context="com.example.emilstepanian.justhandworker.controller.jobtaker.SendBidFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
