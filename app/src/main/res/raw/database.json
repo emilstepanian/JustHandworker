@@ -258,99 +258,99 @@
       "professionId": "5"
     }
   ],
-  "requiredInfoValue": [
+  "specificationEntry": [
     {
       "id": "1",
-      "requiredInfoId": "1",
+      "specificationId": "1",
       "jobId": "1",
       "value": "15 M2"
     },
     {
       "id": "2",
-      "requiredInfoId": "2",
+      "specificationId": "2",
       "jobId": "1",
       "value": "Porcelæn"
     },
     {
       "id": "3",
-      "requiredInfoId": "3",
+      "specificationId": "3",
       "jobId": "1",
       "value": "Ja"
     },
     {
       "id": "4",
-      "requiredInfoId": "4",
+      "specificationId": "4",
       "jobId": "1",
       "value": "5 år ca."
     },
     {
       "id": "5",
-      "requiredInfoId": "5",
+      "specificationId": "5",
       "jobId": "2",
       "value": "20 M2"
     },
     {
       "id": "6",
-      "requiredInfoId": "6",
+      "specificationId": "6",
       "jobId": "2",
       "value": "Ja"
     },
     {
       "id": "7",
-      "requiredInfoId": "7",
+      "specificationId": "7",
       "jobId": "2",
       "value": "Ja"
     },
     {
       "id": "8",
-      "requiredInfoId": "8",
+      "specificationId": "8",
       "jobId": "2",
       "value": "Ja"
     },
     {
       "id": "9",
-      "requiredInfoId": "9",
+      "specificationId": "9",
       "jobId": "3",
       "value": "1M"
     },
     {
       "id": "10",
-      "requiredInfoId": "10",
+      "specificationId": "10",
       "jobId": "3",
       "value": "3M"
     },
     {
       "id": "11",
-      "requiredInfoId": "11",
+      "specificationId": "11",
       "jobId": "3",
       "value": "20 år"
     },
     {
       "id": "12",
-      "requiredInfoId": "13",
+      "specificationId": "13",
       "jobId": "4",
       "value": "Lysegrøn"
     },
     {
       "id": "13",
-      "requiredInfoId": "14",
+      "specificationId": "14",
       "jobId": "4",
       "value": "Træ"
     },
     {
       "id": "14",
-      "requiredInfoId": "15",
+      "specificationId": "15",
       "jobId": "4",
       "value": "Ja"
     },
     {
       "id": "15",
-      "requiredInfoId": "16",
+      "specificationId": "16",
       "jobId": "5",
       "value": "Nej"
     }
   ],
-  "requiredInfo": [
+  "specification": [
     {
       "id": "1",
       "categoryId": "4",

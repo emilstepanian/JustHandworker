@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.emilstepanian.justhandworker.R;
-import com.example.emilstepanian.justhandworker.controller.BidsAdapter;
-import com.example.emilstepanian.justhandworker.controller.JSONParser;
 import com.example.emilstepanian.justhandworker.model.Bid;
 import com.example.emilstepanian.justhandworker.model.User;
 ;
@@ -26,7 +24,7 @@ import java.util.List;
 public class BidRecyclerViewFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private BidsAdapter bidsAdapter;
+    private BidAdapter bidAdapter;
     List<Bid> bidsList, filteredBidsList;
 
 
@@ -78,8 +76,8 @@ public class BidRecyclerViewFragment extends Fragment {
                 break;
         }
 
-        bidsAdapter = new BidsAdapter(filteredBidsList, getActivity());
-        recyclerView.setAdapter(bidsAdapter);
+        bidAdapter = new BidAdapter(filteredBidsList, getActivity());
+        recyclerView.setAdapter(bidAdapter);
 
         return rootView;
     }

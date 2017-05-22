@@ -141,38 +141,38 @@ public class JSONParser {
                     }
                     break;
 
-                case "requiredInfo":
+                case "specification":
                     data = new ArrayList<>();
 
                     for (int i = 0; i < jsonArray.length(); i++) {
 
-                        JSONObject jsonRequiredInfo = jsonArray.getJSONObject(i);
+                        JSONObject jsonSpecification = jsonArray.getJSONObject(i);
 
 
                         Specification specification = new Specification();
 
-                        specification.setId(jsonRequiredInfo.getInt("id"));
-                        specification.setCategoryId(jsonRequiredInfo.getInt("categoryId"));
-                        specification.setTitle(jsonRequiredInfo.getString("title"));
+                        specification.setId(jsonSpecification.getInt("id"));
+                        specification.setCategoryId(jsonSpecification.getInt("categoryId"));
+                        specification.setTitle(jsonSpecification.getString("title"));
 
                         data.add(specification);
                     }
                     break;
 
 
-                case "requiredInfoValue":
+                case "specificationEntry":
                     data = new ArrayList<>();
 
                     for (int i = 0; i < jsonArray.length(); i++) {
 
-                        JSONObject jsonRequiredInfoValue = jsonArray.getJSONObject(i);
+                        JSONObject jsonSpecificationEntry = jsonArray.getJSONObject(i);
 
                         SpecificationValue specificationValue = new SpecificationValue();
 
-                        specificationValue.setId(jsonRequiredInfoValue.getInt("id"));
-                        specificationValue.setJobId(jsonRequiredInfoValue.getInt("jobId"));
-                        specificationValue.setSpecificationId(jsonRequiredInfoValue.getInt("requiredInfoId"));
-                        specificationValue.setValue(jsonRequiredInfoValue.getString("value"));
+                        specificationValue.setId(jsonSpecificationEntry.getInt("id"));
+                        specificationValue.setJobId(jsonSpecificationEntry.getInt("jobId"));
+                        specificationValue.setSpecificationId(jsonSpecificationEntry.getInt("specificationId"));
+                        specificationValue.setValue(jsonSpecificationEntry.getString("value"));
                         data.add(specificationValue);
                     }
                     break;
@@ -340,8 +340,8 @@ public class JSONParser {
         JSONArray professionArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "profession");
         JSONArray imageArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "image");
         JSONArray categoryArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "category");
-        JSONArray requiredInfoValueArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "requiredInfoValue");
-        JSONArray requiredInfoArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "requiredInfo");
+        JSONArray specificationEntryArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "specificationEntry");
+        JSONArray specificationArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "specification");
         JSONArray messageArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "message");
         JSONArray reviewArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "review");
         JSONArray bidArray = getJSONArray(context.getResources().openRawResource(R.raw.database), "bid");
@@ -352,8 +352,8 @@ public class JSONParser {
         writeJsonArray(writer, professionArray, "profession");
         writeJsonArray(writer, imageArray, "image");
         writeJsonArray(writer, categoryArray, "category");
-        writeJsonArray(writer, requiredInfoValueArray, "requiredInfoValue");
-        writeJsonArray(writer, requiredInfoArray, "requiredInfo");
+        writeJsonArray(writer, specificationEntryArray, "specificationEntry");
+        writeJsonArray(writer, specificationArray, "specification");
         writeJsonArray(writer, messageArray, "message");
         writeJsonArray(writer, reviewArray, "review");
         writeJsonArray(writer, bidArray, "bid");
@@ -377,8 +377,8 @@ public class JSONParser {
             arrayMap.put("profession", getJSONArray(new FileInputStream(getJSONfile(context)), "profession"));
             arrayMap.put("image", getJSONArray(new FileInputStream(getJSONfile(context)), "image"));
             arrayMap.put("category", getJSONArray(new FileInputStream(getJSONfile(context)), "category"));
-            arrayMap.put("requiredInfo", getJSONArray(new FileInputStream(getJSONfile(context)), "requiredInfo"));
-            arrayMap.put("requiredInfoValue", getJSONArray(new FileInputStream(getJSONfile(context)), "requiredInfoValue"));
+            arrayMap.put("specification", getJSONArray(new FileInputStream(getJSONfile(context)), "specification"));
+            arrayMap.put("specificationEntry", getJSONArray(new FileInputStream(getJSONfile(context)), "specificationEntry"));
             arrayMap.put("message", getJSONArray(new FileInputStream(getJSONfile(context)), "message"));
             arrayMap.put("review", getJSONArray(new FileInputStream(getJSONfile(context)), "review"));
             arrayMap.put("bid", getJSONArray(new FileInputStream(getJSONfile(context)), "bid"));
@@ -416,8 +416,8 @@ public class JSONParser {
             writeJsonArray(writer, arrayMap.get("profession"), "profession");
             writeJsonArray(writer, arrayMap.get("image"), "image");
             writeJsonArray(writer, arrayMap.get("category"), "category");
-            writeJsonArray(writer, arrayMap.get("requiredInfoValue"), "requiredInfoValue");
-            writeJsonArray(writer, arrayMap.get("requiredInfo"), "requiredInfo");
+            writeJsonArray(writer, arrayMap.get("specificationEntry"), "specificationEntry");
+            writeJsonArray(writer, arrayMap.get("specification"), "specification");
             writeJsonArray(writer, arrayMap.get("message"), "message");
             writeJsonArray(writer, arrayMap.get("review"), "review");
             writeJsonArray(writer, arrayMap.get("bid"), "bid");
@@ -457,8 +457,8 @@ public class JSONParser {
             writeJsonArray(writer, arrayMap.get("profession"), "profession");
             writeJsonArray(writer, arrayMap.get("image"), "image");
             writeJsonArray(writer, arrayMap.get("category"), "category");
-            writeJsonArray(writer, arrayMap.get("requiredInfoValue"), "requiredInfoValue");
-            writeJsonArray(writer, arrayMap.get("requiredInfo"), "requiredInfo");
+            writeJsonArray(writer, arrayMap.get("specificationEntry"), "specificationEntry");
+            writeJsonArray(writer, arrayMap.get("specification"), "specification");
             writeJsonArray(writer, arrayMap.get("message"), "message");
             writeJsonArray(writer, arrayMap.get("review"), "review");
             writeJsonArray(writer, arrayMap.get("bid"), "bid");
@@ -527,13 +527,13 @@ public class JSONParser {
 
                 writer.name("professionId").value(object.getInt("professionId"));
                 break;
-            case "requiredInfoValue":
+            case "specificationEntry":
                 writer.name("id").value(object.getInt("id"));
-                writer.name("requiredInfoId").value(object.getInt("requiredInfoId"));
+                writer.name("specificationId").value(object.getInt("specificationId"));
                 writer.name("jobId").value(object.getInt("jobId"));
                 writer.name("value").value(object.getString("value"));
                 break;
-            case "requiredInfo":
+            case "specification":
                 writer.name("id").value(object.getInt("id"));
                 writer.name("categoryId").value(object.getInt("categoryId"));
                 writer.name("title").value(object.getString("title"));

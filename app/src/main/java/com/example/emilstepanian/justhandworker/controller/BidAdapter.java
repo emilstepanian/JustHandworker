@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 
-public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
+public class BidAdapter extends RecyclerView.Adapter<BidAdapter.BidHolder> {
 
     private List<Bid> bidList;
     private LayoutInflater inflater;
@@ -30,7 +30,7 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
 
 
-    public BidsAdapter(List<Bid> bidsList, Context context) {
+    public BidAdapter(List<Bid> bidsList, Context context) {
         this.bidList  = bidsList;
         this.inflater = LayoutInflater.from(context);
 
@@ -40,7 +40,7 @@ public class BidsAdapter extends RecyclerView.Adapter<BidsAdapter.BidHolder> {
 
 
     @Override
-    public BidsAdapter.BidHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BidAdapter.BidHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.bid, parent, false);
         return new BidHolder(view);
     }

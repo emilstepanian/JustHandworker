@@ -34,7 +34,7 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
     private EditText title, description, location;
     private Spinner spinner;
-    private LinearLayout requirementsLayout;
+    private LinearLayout specificationsLayout;
     private List<Category> categoryList;
     private List<String> spinnerArray;
     private Button createJobButton;
@@ -60,7 +60,7 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
         description = (EditText) findViewById(R.id.create_job_description);
         location = (EditText) findViewById(R.id.create_job_location);
 
-        requirementsLayout = (LinearLayout) findViewById(R.id.create_job_requirements_layout);
+        specificationsLayout = (LinearLayout) findViewById(R.id.create_job_specifications_layout);
 
         createJobButton = (Button) findViewById(R.id.create_job_button);
 
@@ -126,37 +126,37 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
 
 
-                            List<SpecificationValue> specificationValueList = JSONParser.getListData(getApplicationContext(), "requiredInfoValue");
-                            int requiredInfoValueId = 0;
+                            List<SpecificationValue> specificationValueList = JSONParser.getListData(getApplicationContext(), "specificationEntry");
+                            int specificationEntryId = 0;
                             for (SpecificationValue specificationValue : specificationValueList){
-                                if(requiredInfoValueId <= specificationValue.getId()){
-                                    requiredInfoValueId = specificationValue.getId();
-                                    requiredInfoValueId++;
+                                if(specificationEntryId <= specificationValue.getId()){
+                                    specificationEntryId = specificationValue.getId();
+                                    specificationEntryId++;
                                 }
                             }
 
-                            List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
+                            List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "specification");
 
 
-                            int count = requirementsLayout.getChildCount();
+                            int count = specificationsLayout.getChildCount();
                             View v = null;
                             for(int i=0; i<count; i++) {
-                                v = requirementsLayout.getChildAt(i);
+                                v = specificationsLayout.getChildAt(i);
                                 LinearLayout child = (LinearLayout) v;
 
                                 JSONObject riValue = new JSONObject();
-                                riValue.put("id", requiredInfoValueId++);
+                                riValue.put("id", specificationEntryId++);
 
                                 for(Specification specification : specificationList) {
                                     if(specification.getTitle().equals(((TextView) child.getChildAt(0)).getText().toString())){
-                                        riValue.put("requiredInfoId", specification.getId());
+                                        riValue.put("specificationId", specification.getId());
 
                                     }
                                 }
                                 riValue.put("jobId", jobId);
                                 riValue.put("value", ((EditText) child.getChildAt(1)).getText().toString());
 
-                                JSONParser.insertIntoDatabase(getApplicationContext(), riValue, "requiredInfoValue");
+                                JSONParser.insertIntoDatabase(getApplicationContext(), riValue, "specificationEntry");
 
                             }
 
@@ -215,11 +215,11 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
         String selectedCategoryTitle = (String) parent.getItemAtPosition(position);
         Category selectedCategory = null;
-        List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
+        List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "specification");
         List<Specification> specificationForCategory = new ArrayList<>();
         LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
 
-        requirementsLayout.removeAllViews();
+        specificationsLayout.removeAllViews();
 
 
         for (Category category : categoryList) {
@@ -237,11 +237,11 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
                 specificationForCategory.add(specification);
 
-                View requiredInfoView = inflater.inflate(R.layout.specification, requirementsLayout, false);
+                View specificationView = inflater.inflate(R.layout.specification, specificationsLayout, false);
 
-                TextView riTitle = (TextView) requiredInfoView.findViewById(R.id.specification_field);
+                TextView riTitle = (TextView) specificationView.findViewById(R.id.specification_field);
 
-                TextView riValue = (TextView) requiredInfoView.findViewById(R.id.specificationValue_field);
+                TextView riValue = (TextView) specificationView.findViewById(R.id.specificationValue_field);
 
                 riValue.setText("");
                 riValue.setHint("Indtast " + specification.getTitle());
@@ -249,7 +249,7 @@ public class CreateJobActivity extends AppCompatActivity implements AdapterView.
 
                 riTitle.setText(specification.getTitle());
 
-                requirementsLayout.addView(requiredInfoView);
+                specificationsLayout.addView(specificationView);
 
             }
 

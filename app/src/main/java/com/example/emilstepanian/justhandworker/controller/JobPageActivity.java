@@ -201,57 +201,57 @@ public class JobPageActivity extends AppCompatActivity {
         description = (TextView) findViewById(R.id.description_job_page);
         description.setText(jobData.getString("description"));
 
-        getRequiredFields(jobData.getInt("categoryId"));
+        getSpecificationFields(jobData.getInt("categoryId"));
 
 
 
     }
 
-    private void getRequiredFields(final int categoryId) {
+    private void getSpecificationFields(final int categoryId) {
         final Context context = this;
 
         final Handler handler = new Handler();
-        final Runnable getRequiredFields = new Runnable() {
+        final Runnable getSpecificationFields = new Runnable() {
             @Override
             public void run() {
-                List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "requiredInfo");
-                List<SpecificationValue> specificationValues = JSONParser.getListData(getApplicationContext(), "requiredInfoValue" );
+                List<Specification> specificationList = JSONParser.getListData(getApplicationContext(), "specification");
+                List<SpecificationValue> specificationValues = JSONParser.getListData(getApplicationContext(), "specificationEntry" );
 
 
-                LinearLayout requiredInfoLayout = (LinearLayout) findViewById(R.id.requiredInfo_job_page_container);
+                LinearLayout specificationLayout = (LinearLayout) findViewById(R.id.specification_job_page_container);
 
                 LayoutInflater inflater = LayoutInflater.from(context);
 
-                for(Specification requiredInfo : specificationList) {
+                for(Specification specification : specificationList) {
 
-                    if (categoryId == requiredInfo.getCategoryId()) {
+                    if (categoryId == specification.getCategoryId()) {
 
-                        View view = inflater.inflate(R.layout.specification, requiredInfoLayout, false);
+                        View view = inflater.inflate(R.layout.specification, specificationLayout, false);
 
                         TextView left = (TextView) view.findViewById(R.id.specification_field);
 
-                        left.setText(requiredInfo.getTitle());
+                        left.setText(specification.getTitle());
 
 
-                        EditText requiredInfoValueField = (EditText) view.findViewById(R.id.specificationValue_field);
-                        requiredInfoValueField.setEnabled(false);
+                        EditText specificationEntryField = (EditText) view.findViewById(R.id.specificationValue_field);
+                        specificationEntryField.setEnabled(false);
 
 
                         for (SpecificationValue value : specificationValues) {
 
-                            if (value.getSpecificationId() == requiredInfo.getId()) {
-                                requiredInfoValueField.setText(value.getValue());
+                            if (value.getSpecificationId() == specification.getId()) {
+                                specificationEntryField.setText(value.getValue());
                             }
                         }
 
-                        requiredInfoLayout.addView(view);
+                        specificationLayout.addView(view);
                     }
                 }
 
             }
         };
 
-        handler.post(getRequiredFields);
+        handler.post(getSpecificationFields);
 
 
 
